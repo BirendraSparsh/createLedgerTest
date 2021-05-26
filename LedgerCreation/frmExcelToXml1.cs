@@ -304,6 +304,48 @@ namespace LedgerCreation
 
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+          //  DataGridView dgv = new DataGridView();
+            int cntDGV2 = dataGridView2.Rows.Count - 1;
+            string[] arrTallyHeader = new string[cntDGV2];
+            string[] arrExcelHeader = new string[cntDGV2];
+
+            for (int j = 0; j < cntDGV2; j++)
+            {
+  
+                arrTallyHeader[j] = dataGridView2.Rows[j].Cells[0].Value.ToString();
+                arrExcelHeader[j] = dataGridView2.Rows[j].Cells[1].Value.ToString();
+            }
+
+                for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
+                {   // fetch grid2 header maching Column data from grid1(Excel data)
+                    string[] arrGrid1MachingColData = new string[arrExcelHeader.Length];
+
+                    for (int k = 0; k < arrExcelHeader.Length; k++)
+                    {
+                        string strExcel = arrExcelHeader[k];
+                        arrGrid1MachingColData[k] = (dataGridView1.Rows[i].Cells[strExcel].Value.ToString());
+                    }
+                        
+                   // arrGrid1MachingcolData[1] = (dataGridView1.Rows[i].Cells["Department"].Value.ToString());
+
+                    for (int l = 0; l < arrTallyHeader.Length; l++)
+                    {
+                        dgv.ColumnCount = arrTallyHeader.Length;
+                        dgv.Columns[l].Name = arrTallyHeader[l];
+                    }
+
+                   /* dgv.ColumnCount = 2;
+                    dgv.Columns[0].Name = "Ledger";
+                    dgv.Columns[1].Name = "Group"; */
+
+                    dgv.Rows.Add(arrGrid1MachingColData);
+                }
+        }
+
+       
       
 
 

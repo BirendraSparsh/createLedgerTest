@@ -43,8 +43,12 @@
             this.btnBrowseTemplate = new System.Windows.Forms.Button();
             this.btnPath = new System.Windows.Forms.Button();
             this.txtJsonFile1 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.dgv = new System.Windows.Forms.DataGridView();
+            this.btnConvertToXml = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.SuspendLayout();
             // 
             // txtFile
@@ -184,11 +188,41 @@
             this.txtJsonFile1.Size = new System.Drawing.Size(188, 20);
             this.txtJsonFile1.TabIndex = 15;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(632, 444);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(145, 23);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "FechColumnDataOfgrid2";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // dgv
+            // 
+            this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv.Location = new System.Drawing.Point(651, 71);
+            this.dgv.Name = "dgv";
+            this.dgv.Size = new System.Drawing.Size(315, 289);
+            this.dgv.TabIndex = 17;
+            // 
+            // btnConvertToXml
+            // 
+            this.btnConvertToXml.Location = new System.Drawing.Point(341, 484);
+            this.btnConvertToXml.Name = "btnConvertToXml";
+            this.btnConvertToXml.Size = new System.Drawing.Size(130, 23);
+            this.btnConvertToXml.TabIndex = 18;
+            this.btnConvertToXml.Text = "Convert to xml";
+            this.btnConvertToXml.UseVisualStyleBackColor = true;
+            // 
             // frmExcelToXml1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(788, 559);
+            this.ClientSize = new System.Drawing.Size(990, 559);
+            this.Controls.Add(this.btnConvertToXml);
+            this.Controls.Add(this.dgv);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.txtJsonFile1);
             this.Controls.Add(this.btnPath);
             this.Controls.Add(this.btnBrowseTemplate);
@@ -209,6 +243,7 @@
             this.Load += new System.EventHandler(this.frmExcelToXml1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -231,5 +266,8 @@
         private System.Windows.Forms.Button btnBrowseTemplate;
         private System.Windows.Forms.Button btnPath;
         private System.Windows.Forms.TextBox txtJsonFile1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView dgv;
+        private System.Windows.Forms.Button btnConvertToXml;
     }
 }
