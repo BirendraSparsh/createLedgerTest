@@ -48,12 +48,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmExcelToXml.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmExcelToXml.Designer.cs">
-      <DependentUpon>frmExcelToXml.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmExcelToXml1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,9 +104,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmExcelToXml.resx">
-      <DependentUpon>frmExcelToXml.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmExcelToXml1.resx">
       <DependentUpon>frmExcelToXml1.cs</DependentUpon>
     </EmbeddedResource>

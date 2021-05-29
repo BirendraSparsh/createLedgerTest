@@ -345,9 +345,106 @@ namespace LedgerCreation
                 }
         }
 
+        private void btnConvertToXml_Click(object sender, EventArgs e)
+        {
+
+             //------Adding column to data table and row-------//
+            int i = 0;  
+            int oItem = 0;  
+            DataTable dt = new DataTable("Raport");
+            //Genetating column to datatable
+            foreach(DataGridViewColumn  col in dgv.Columns)
+               dt.Columns.Add(col.Name,typeof(string));
+
+
+           int grid2_row_count = dgv.Rows.Count-1;
+
+           for (int l = 0; l < grid2_row_count; l++)
+           {
+               dt.Rows.Add();
+               for (int j = 0; j < dgv.Columns.Count; j++)
+               {
+                   dt.Rows[l][j] = dgv[j, l].Value;
+               }
+
+           }
+            
+            oItem = dt.Rows.Count;  
+            oItem -= 1;  
+            
+                XmlDocument doc = new XmlDocument();
+                XmlDeclaration declaire = doc.CreateXmlDeclaration("1.0", "utf-8", null);
+                // -----------------------create root-----------------------------  
+                XmlElement rootnode = doc.CreateElement("ENVELOPE");
+                doc.InsertBefore(declaire, doc.DocumentElement);
+                doc.AppendChild(rootnode);
+                XmlElement header = doc.CreateElement("HEADER");
+                XmlElement tallyRequest = doc.CreateElement("TALLYREQUEST");
+                XmlElement body = doc.CreateElement("BODY");
+                XmlElement importData = doc.CreateElement("IMPORTDATA");
+                XmlElement requestDesc = doc.CreateElement("REQUESTDESC");
+                XmlElement reportName = doc.CreateElement("REPORTNAME");
+                XmlElement requestData = doc.CreateElement("REQUESTDATA");
+
+                rootnode.AppendChild(header);
+                header.AppendChild(tallyRequest);
+                tallyRequest.InnerText = "Import Data";
+                rootnode.AppendChild(body);
+                body.AppendChild(importData);
+                importData.AppendChild(requestDesc);
+                requestDesc.AppendChild(reportName);
+                reportName.InnerText = "All Masters";
+                importData.AppendChild(requestData);
+                
+                
+             while (i < oItem)
+               {
+
+                       // create element of xml
+                        XmlElement tallyMesssage = doc.CreateElement("TALLYMESSAGE");
+                        XmlElement ledger = doc.CreateElement("LEDGER");
+                        XmlElement name = doc.CreateElement("NAME");
+                        XmlElement parent = doc.CreateElement("PARENT");
+                        XmlElement openingBalance = doc.CreateElement("OPENINGBALANCE");
+                        XmlElement isBillWiseOn = doc.CreateElement("ISBILLWISEON");
+
+                       
+                       //assing value 
+                        name.InnerText = dt.Rows[i].ItemArray[0].ToString();
+                        parent.InnerText = dt.Rows[i].ItemArray[1].ToString();
+                        openingBalance.InnerText = dt.Rows[i].ItemArray[2].ToString();
+                        isBillWiseOn.InnerText = "Yes";
+
+                        // assign properties to element
+                        tallyMesssage.SetAttribute("xmlns:UDF", "TallyUDF");
+                        ledger.SetAttribute("NAME", name.InnerText);
+                        ledger.SetAttribute("Action", "Create");
+
+                        // add cheld element 
+                        tallyMesssage.AppendChild(ledger);
+                        tallyMesssage.AppendChild(name);
+                        tallyMesssage.AppendChild(parent);
+                        tallyMesssage.AppendChild(openingBalance);
+                        tallyMesssage.AppendChild(isBillWiseOn);
+
+                        requestData.AppendChild(tallyMesssage);
+                        i++;
+                       
+
+                   // doc.DocumentElement.AppendChild(rootnode);
+
+                }
+            
+             
+              doc.Save("C:/Users/Birendra Kumar/Desktop/Tally Integration Doc-23Mar-21/Output1.xml");
+            //  Response.Write("Created");
+            }
+            
+        }
+
        
       
 
 
     }
-}
+

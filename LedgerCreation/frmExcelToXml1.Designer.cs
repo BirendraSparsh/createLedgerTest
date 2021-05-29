@@ -214,6 +214,7 @@
             this.btnConvertToXml.TabIndex = 18;
             this.btnConvertToXml.Text = "Convert to xml";
             this.btnConvertToXml.UseVisualStyleBackColor = true;
+            this.btnConvertToXml.Click += new System.EventHandler(this.btnConvertToXml_Click);
             // 
             // frmExcelToXml1
             // 
