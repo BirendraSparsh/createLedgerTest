@@ -49,6 +49,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtFileName = new System.Windows.Forms.TextBox();
             this.lblMessage = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
@@ -86,9 +88,9 @@
             // 
             this.btnLoad.Location = new System.Drawing.Point(370, 11);
             this.btnLoad.Name = "btnLoad";
-            this.btnLoad.Size = new System.Drawing.Size(119, 23);
+            this.btnLoad.Size = new System.Drawing.Size(157, 23);
             this.btnLoad.TabIndex = 3;
-            this.btnLoad.Text = "Load to Grid";
+            this.btnLoad.Text = "Load Excel data to Grid";
             this.btnLoad.UseVisualStyleBackColor = true;
             this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
@@ -100,7 +102,7 @@
             "PARENT",
             "OPENINGBALANCE",
             "ISBILLWISEON"});
-            this.comboTally.Location = new System.Drawing.Point(145, 211);
+            this.comboTally.Location = new System.Drawing.Point(115, 211);
             this.comboTally.Name = "comboTally";
             this.comboTally.Size = new System.Drawing.Size(121, 21);
             this.comboTally.TabIndex = 4;
@@ -108,14 +110,14 @@
             // comboExcel
             // 
             this.comboExcel.FormattingEnabled = true;
-            this.comboExcel.Location = new System.Drawing.Point(314, 211);
+            this.comboExcel.Location = new System.Drawing.Point(347, 211);
             this.comboExcel.Name = "comboExcel";
             this.comboExcel.Size = new System.Drawing.Size(121, 21);
             this.comboExcel.TabIndex = 5;
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(463, 209);
+            this.btnAdd.Location = new System.Drawing.Point(495, 209);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 6;
@@ -248,11 +250,31 @@
             this.lblMessage.TabIndex = 22;
             this.lblMessage.Text = "Message";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(20, 214);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(81, 13);
+            this.label3.TabIndex = 23;
+            this.label3.Text = "Ledger Element";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(261, 214);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(71, 13);
+            this.label4.TabIndex = 24;
+            this.label4.Text = "Excel Header";
+            // 
             // frmExcelToXml1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(990, 559);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.lblMessage);
             this.Controls.Add(this.txtFileName);
             this.Controls.Add(this.label2);
@@ -308,5 +330,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtFileName;
         private System.Windows.Forms.Label lblMessage;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }

@@ -178,7 +178,8 @@ namespace LedgerCreation
             str1[1] = comboExcel.GetItemText(comboExcel.SelectedItem);
 
             dataGridView2.ColumnCount = 2;
-            dataGridView2.Columns[0].Name = "Tally";
+           // dataGridView2.Columns[0].Name = "Tally";
+            dataGridView2.Columns[0].Name = "Ledger";
             dataGridView2.Columns[1].Name = "Excel";
 
             dataGridView2.Rows.Add(str1);
@@ -288,17 +289,18 @@ namespace LedgerCreation
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+           // showing selected excel data according to json template file  in datagrid dgv
           //  DataGridView dgv = new DataGridView();
             int cntDGV2 = dataGridView2.Rows.Count - 1;
-            string[] arrTallyHeader = new string[cntDGV2];
+           // string[] arrTallyHeader = new string[cntDGV2];
+            string[] arrTallyLedgerElement = new string[cntDGV2];
             string[] arrExcelHeader = new string[cntDGV2];
 
             for (int j = 0; j < cntDGV2; j++)
             {
   
-                arrTallyHeader[j] = dataGridView2.Rows[j].Cells[0].Value.ToString();
-                arrExcelHeader[j] = dataGridView2.Rows[j].Cells[1].Value.ToString();
+                arrTallyLedgerElement[j] = dataGridView2.Rows[j].Cells[0].Value.ToString(); // fetching column header
+                arrExcelHeader[j] = dataGridView2.Rows[j].Cells[1].Value.ToString(); // fetching column header
             }
 
                 for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
@@ -313,10 +315,10 @@ namespace LedgerCreation
                         
                    // arrGrid1MachingcolData[1] = (dataGridView1.Rows[i].Cells["Department"].Value.ToString());
 
-                    for (int l = 0; l < arrTallyHeader.Length; l++)
+                    for (int m = 0; m < arrTallyLedgerElement.Length; m++)
                     {
-                        dgv.ColumnCount = arrTallyHeader.Length;
-                        dgv.Columns[l].Name = arrTallyHeader[l];
+                        dgv.ColumnCount = arrTallyLedgerElement.Length;
+                        dgv.Columns[m].Name = arrTallyLedgerElement[m];  // set column name of dgv
                     }
 
                    /* dgv.ColumnCount = 2;
@@ -420,9 +422,11 @@ namespace LedgerCreation
              string strXml = doc.InnerXml.ToString();
              Console.WriteLine(strXml);
               doc.Save("C:/Users/Birendra Kumar/Desktop/Tally Integration Doc-23Mar-21/Output1.xml");
+              lblMessage.Text = "XMl file is created";  
 
-                string IRespose = SendReqst(strXml);
-           
+            // sending request to tally to create ledger according to xml document
+                string IRespose = SendReqst(strXml);  
+                lblMessage.Text = "Created Ledger in Tally";
             }
 
         private void btnPost_Click(object sender, EventArgs e)
