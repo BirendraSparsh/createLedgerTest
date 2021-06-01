@@ -37,7 +37,7 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtJsonFile = new System.Windows.Forms.TextBox();
+            this.txtFilePath = new System.Windows.Forms.TextBox();
             this.btnSaveTemplate = new System.Windows.Forms.Button();
             this.btnLoadJsonFile = new System.Windows.Forms.Button();
             this.btnBrowseTemplate = new System.Windows.Forms.Button();
@@ -46,6 +46,9 @@
             this.button1 = new System.Windows.Forms.Button();
             this.dgv = new System.Windows.Forms.DataGridView();
             this.btnConvertToXml = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtFileName = new System.Windows.Forms.TextBox();
+            this.lblMessage = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
@@ -71,9 +74,11 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 46);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(623, 150);
             this.dataGridView1.TabIndex = 2;
             // 
@@ -91,9 +96,10 @@
             // 
             this.comboTally.FormattingEnabled = true;
             this.comboTally.Items.AddRange(new object[] {
-            "Ledger",
-            "Group",
-            "OpeningBalance"});
+            "NAME",
+            "PARENT",
+            "OPENINGBALANCE",
+            "ISBILLWISEON"});
             this.comboTally.Location = new System.Drawing.Point(145, 211);
             this.comboTally.Name = "comboTally";
             this.comboTally.Size = new System.Drawing.Size(121, 21);
@@ -134,18 +140,18 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "Template file path ";
             // 
-            // txtJsonFile
+            // txtFilePath
             // 
-            this.txtJsonFile.Location = new System.Drawing.Point(109, 413);
-            this.txtJsonFile.Name = "txtJsonFile";
-            this.txtJsonFile.Size = new System.Drawing.Size(188, 20);
-            this.txtJsonFile.TabIndex = 9;
+            this.txtFilePath.Location = new System.Drawing.Point(109, 413);
+            this.txtFilePath.Name = "txtFilePath";
+            this.txtFilePath.Size = new System.Drawing.Size(188, 20);
+            this.txtFilePath.TabIndex = 9;
             // 
             // btnSaveTemplate
             // 
-            this.btnSaveTemplate.Location = new System.Drawing.Point(341, 411);
+            this.btnSaveTemplate.Location = new System.Drawing.Point(513, 410);
             this.btnSaveTemplate.Name = "btnSaveTemplate";
-            this.btnSaveTemplate.Size = new System.Drawing.Size(130, 23);
+            this.btnSaveTemplate.Size = new System.Drawing.Size(98, 23);
             this.btnSaveTemplate.TabIndex = 10;
             this.btnSaveTemplate.Text = "Save Template";
             this.btnSaveTemplate.UseVisualStyleBackColor = true;
@@ -177,7 +183,8 @@
             this.btnPath.Name = "btnPath";
             this.btnPath.Size = new System.Drawing.Size(25, 23);
             this.btnPath.TabIndex = 14;
-            this.btnPath.Text = "\'\'\'";
+            this.btnPath.Text = "...";
+            this.btnPath.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnPath.UseVisualStyleBackColor = true;
             this.btnPath.Click += new System.EventHandler(this.btnPath_Click);
             // 
@@ -216,11 +223,39 @@
             this.btnConvertToXml.UseVisualStyleBackColor = true;
             this.btnConvertToXml.Click += new System.EventHandler(this.btnConvertToXml_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(341, 416);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(51, 13);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "file Name";
+            // 
+            // txtFileName
+            // 
+            this.txtFileName.Location = new System.Drawing.Point(398, 412);
+            this.txtFileName.Name = "txtFileName";
+            this.txtFileName.Size = new System.Drawing.Size(101, 20);
+            this.txtFileName.TabIndex = 21;
+            // 
+            // lblMessage
+            // 
+            this.lblMessage.AutoSize = true;
+            this.lblMessage.Location = new System.Drawing.Point(9, 537);
+            this.lblMessage.Name = "lblMessage";
+            this.lblMessage.Size = new System.Drawing.Size(50, 13);
+            this.lblMessage.TabIndex = 22;
+            this.lblMessage.Text = "Message";
+            // 
             // frmExcelToXml1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(990, 559);
+            this.Controls.Add(this.lblMessage);
+            this.Controls.Add(this.txtFileName);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnConvertToXml);
             this.Controls.Add(this.dgv);
             this.Controls.Add(this.button1);
@@ -229,7 +264,7 @@
             this.Controls.Add(this.btnBrowseTemplate);
             this.Controls.Add(this.btnLoadJsonFile);
             this.Controls.Add(this.btnSaveTemplate);
-            this.Controls.Add(this.txtJsonFile);
+            this.Controls.Add(this.txtFilePath);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.btnAdd);
@@ -240,7 +275,7 @@
             this.Controls.Add(this.btnBrowse);
             this.Controls.Add(this.txtFile);
             this.Name = "frmExcelToXml1";
-            this.Text = "r";
+            this.Text = "Create Ledger from Excel File";
             this.Load += new System.EventHandler(this.frmExcelToXml1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
@@ -261,7 +296,7 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtJsonFile;
+        private System.Windows.Forms.TextBox txtFilePath;
         private System.Windows.Forms.Button btnSaveTemplate;
         private System.Windows.Forms.Button btnLoadJsonFile;
         private System.Windows.Forms.Button btnBrowseTemplate;
@@ -270,5 +305,8 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dgv;
         private System.Windows.Forms.Button btnConvertToXml;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtFileName;
+        private System.Windows.Forms.Label lblMessage;
     }
 }

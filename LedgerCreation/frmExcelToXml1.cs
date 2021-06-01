@@ -7,6 +7,7 @@ using System.Data.OleDb;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -30,9 +31,10 @@ namespace LedgerCreation
 
             if (txtFile.Text != "")
             {
-                string filename = "Ledger Master.xlsx"; //Path.GetFileName((txtFile.Text).FileName);
+               // string filename = "Ledger Master.xlsx"; //Path.GetFileName((txtFile.Text).FileName).ToString(); //
                 string fileExtension = ".xlsx"; //Path.GetExtension(file1.PostedFile.FileName);
-                string filelocation = "C:/Users/Birendra Kumar/Desktop/Tally Integration Doc-23Mar-21/" + filename;
+               // string filelocation = @"C:\Users\Birendra Kumar\Desktop\Tally Integration Doc-23Mar-21\" + filename;
+                string filelocation = txtFile.Text;
                 if (fileExtension == ".xls" || fileExtension == ".XLS")
                 {
                     connStr = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + filelocation + ";Extended Properties=\"Excel 8.0;HDR=Yes;IMEX=2\"";
@@ -56,7 +58,10 @@ namespace LedgerCreation
                 da.Fill(dt);
                 conn.Close();
                 dataGridView1.DataSource = dt;
-               // grdExcel.DataBind();
+
+               
+                
+                // grdExcel.DataBind();
 
                 //------fetching column name of datatables in combobox
                 List<string> colNames = dt.Columns.Cast<DataColumn>().Select(x => x.ColumnName).ToList();
@@ -75,7 +80,7 @@ namespace LedgerCreation
                 doc.InsertBefore(declaire, doc.DocumentElement);
                 doc.AppendChild(rootnode);
 
-                while (i < oItem)
+               /* while (i < oItem)
                 {
 
                     day = dt.Rows[i].ItemArray[0].ToString();
@@ -121,7 +126,7 @@ namespace LedgerCreation
 
                     }
                 }
-                doc.Save("C:/Users/Birendra Kumar/Desktop/Tally Integration Doc-23Mar-21/Output.xml");
+                doc.Save("C:/Users/Birendra Kumar/Desktop/Tally Integration Doc-23Mar-21/Output.xml");  */
               //  Response.Write("Created");
             }  
 
@@ -163,7 +168,7 @@ namespace LedgerCreation
 
         private void frmExcelToXml1_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -210,41 +215,18 @@ namespace LedgerCreation
             //Console.WriteLine(JsonResult);
 
             //save diolog box----------//
-         
-         /*   SaveFileDialog saveFileDialog1 = new SaveFileDialog
-            {
-                InitialDirectory = @"C:\",
-                Title = "Save Text Files",
-
-                CheckFileExists = true,
-                CheckPathExists = true,
-
-                DefaultExt = "json",
-                Filter = "Json files (*.json)|*.json",
-                FilterIndex = 2,
-                RestoreDirectory = true,
-
-                
-            }; 
-
-            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                txtJsonFile.Text = saveFileDialog1.FileName;
-            }  */
-
-           
-
-
+ 
             // string json string inti json file
-            if(txtJsonFile.Text != string.Empty)
+            if(txtFilePath.Text != string.Empty && txtFileName.Text !=string.Empty)
             {
-                string strPath = txtJsonFile.Text + ".json";
+                string strPath = txtFilePath.Text +"\\" + txtFileName.Text  + ".json";
                 File.WriteAllText(strPath , JsonResult);
                 // File.WriteAllText(@"C:\Users\Birendra Kumar\Desktop\Tally Integration Doc-23Mar-21\"+ txtJsonFile.Text + ".json" , JsonResult);
+                lblMessage.Text = "Json File has been saved";
             }
             else
             {
-                txtJsonFile.Focus();
+                txtFilePath.Focus();
             } 
             
        
@@ -273,7 +255,7 @@ namespace LedgerCreation
             FolderBrowserDialog folderBrowserDialog1 = new FolderBrowserDialog();
             if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
              {
-                txtJsonFile.Text = folderBrowserDialog1.SelectedPath;
+                txtFilePath.Text = folderBrowserDialog1.SelectedPath;
              }
         }
 
@@ -350,12 +332,11 @@ namespace LedgerCreation
 
              //------Adding column to data table and row-------//
             int i = 0;  
-            int oItem = 0;  
-            DataTable dt = new DataTable("Raport");
+            int row_Count = 0;  
+            DataTable dt = new DataTable("Report1");
             //Genetating column to datatable
             foreach(DataGridViewColumn  col in dgv.Columns)
                dt.Columns.Add(col.Name,typeof(string));
-
 
            int grid2_row_count = dgv.Rows.Count-1;
 
@@ -369,8 +350,8 @@ namespace LedgerCreation
 
            }
             
-            oItem = dt.Rows.Count;  
-            oItem -= 1;  
+            row_Count = dt.Rows.Count;  
+            //oItem -= 1;  
             
                 XmlDocument doc = new XmlDocument();
                 XmlDeclaration declaire = doc.CreateXmlDeclaration("1.0", "utf-8", null);
@@ -395,11 +376,9 @@ namespace LedgerCreation
                 requestDesc.AppendChild(reportName);
                 reportName.InnerText = "All Masters";
                 importData.AppendChild(requestData);
-                
-                
-             while (i < oItem)
-               {
 
+             while (i < row_Count)
+               {
                        // create element of xml
                         XmlElement tallyMesssage = doc.CreateElement("TALLYMESSAGE");
                         XmlElement ledger = doc.CreateElement("LEDGER");
@@ -415,17 +394,20 @@ namespace LedgerCreation
                         openingBalance.InnerText = dt.Rows[i].ItemArray[2].ToString();
                         isBillWiseOn.InnerText = "Yes";
 
+                        
+
+                        // add cheld element 
+                        tallyMesssage.AppendChild(ledger);
+                        ledger.AppendChild(name);
+                        ledger.AppendChild(parent);
+                        ledger.AppendChild(openingBalance);
+                        ledger.AppendChild(isBillWiseOn);
+
                         // assign properties to element
                         tallyMesssage.SetAttribute("xmlns:UDF", "TallyUDF");
                         ledger.SetAttribute("NAME", name.InnerText);
                         ledger.SetAttribute("Action", "Create");
 
-                        // add cheld element 
-                        tallyMesssage.AppendChild(ledger);
-                        tallyMesssage.AppendChild(name);
-                        tallyMesssage.AppendChild(parent);
-                        tallyMesssage.AppendChild(openingBalance);
-                        tallyMesssage.AppendChild(isBillWiseOn);
 
                         requestData.AppendChild(tallyMesssage);
                         i++;
@@ -434,11 +416,51 @@ namespace LedgerCreation
                    // doc.DocumentElement.AppendChild(rootnode);
 
                 }
-            
-             
+
+             string strXml = doc.InnerXml.ToString();
+             Console.WriteLine(strXml);
               doc.Save("C:/Users/Birendra Kumar/Desktop/Tally Integration Doc-23Mar-21/Output1.xml");
-            //  Response.Write("Created");
+
+                string IRespose = SendReqst(strXml);
+           
             }
+
+        private void btnPost_Click(object sender, EventArgs e)
+        {
+             
+
+        }
+
+        public string SendReqst(string pWebRequstStr)
+        {
+            String lResponseStr = "";
+            String lResult = "";
+
+            try
+            {
+                String lTallyLocalHost = "http://localhost:9000";
+                HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(lTallyLocalHost);
+                httpWebRequest.Method = "POST";
+                httpWebRequest.ContentLength = (long)pWebRequstStr.Length;
+                httpWebRequest.ContentType = "application/x-www-form-urlencoded";
+                StreamWriter lStrmWritr = new StreamWriter(httpWebRequest.GetRequestStream());
+                lStrmWritr.Write(pWebRequstStr);
+                lStrmWritr.Close();
+                HttpWebResponse lhttpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+                Stream lreceiveStream = lhttpResponse.GetResponseStream();
+                StreamReader lStreamReader = new StreamReader(lreceiveStream, Encoding.UTF8);
+                lResponseStr = lStreamReader.ReadToEnd();
+                lhttpResponse.Close();
+                lStreamReader.Close();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            lResult = lResponseStr;
+            return lResult;
+        }
             
         }
 
