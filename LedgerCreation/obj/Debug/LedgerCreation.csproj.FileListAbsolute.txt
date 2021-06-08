@@ -26,3 +26,5 @@ G:\LedgerCreation\LedgerCreation\obj\Debug\LedgerCreation.csproj.GenerateResourc
 G:\LedgerCreation\LedgerCreation\obj\Debug\LedgerCreation.exe
 G:\LedgerCreation\LedgerCreation\obj\Debug\LedgerCreation.pdb
 G:\LedgerCreation\LedgerCreation\obj\Debug\LedgerCreation.csprojResolveAssemblyReference.cache
+G:\LedgerCreation\LedgerCreation\obj\Debug\LedgerCreation.frmODBC_Conn.resources
+G:\LedgerCreation\LedgerCreation\obj\Debug\LedgerCreation.frmXML_Conn.resources

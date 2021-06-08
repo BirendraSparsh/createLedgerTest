@@ -221,7 +221,7 @@
             this.btnConvertToXml.Name = "btnConvertToXml";
             this.btnConvertToXml.Size = new System.Drawing.Size(130, 23);
             this.btnConvertToXml.TabIndex = 18;
-            this.btnConvertToXml.Text = "Convert to xml";
+            this.btnConvertToXml.Text = "Create Ledger";
             this.btnConvertToXml.UseVisualStyleBackColor = true;
             this.btnConvertToXml.Click += new System.EventHandler(this.btnConvertToXml_Click);
             // 

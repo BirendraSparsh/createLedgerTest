@@ -16,7 +16,7 @@ namespace LedgerCreation
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmExcelToXml1());
+            Application.Run(new frmODBC_Conn());
         }
     }
 }

@@ -381,34 +381,67 @@ namespace LedgerCreation
 
              while (i < row_Count)
                {
+                  
+
+
                        // create element of xml
                         XmlElement tallyMesssage = doc.CreateElement("TALLYMESSAGE");
                         XmlElement ledger = doc.CreateElement("LEDGER");
-                        XmlElement name = doc.CreateElement("NAME");
+                    /*  XmlElement name = doc.CreateElement("NAME");
                         XmlElement parent = doc.CreateElement("PARENT");
                         XmlElement openingBalance = doc.CreateElement("OPENINGBALANCE");
-                        XmlElement isBillWiseOn = doc.CreateElement("ISBILLWISEON");
+                        XmlElement isBillWiseOn = doc.CreateElement("ISBILLWISEON"); */
 
                        
-                       //assing value 
-                        name.InnerText = dt.Rows[i].ItemArray[0].ToString();
+                       ////assing value 
+                      /*  name.InnerText = dt.Rows[i].ItemArray[0].ToString();
                         parent.InnerText = dt.Rows[i].ItemArray[1].ToString();
                         openingBalance.InnerText = dt.Rows[i].ItemArray[2].ToString();
-                        isBillWiseOn.InnerText = "Yes";
+                        isBillWiseOn.InnerText = "Yes"; */
 
                         
 
                         // add cheld element 
                         tallyMesssage.AppendChild(ledger);
-                        ledger.AppendChild(name);
+                      /*  ledger.AppendChild(name);
                         ledger.AppendChild(parent);
                         ledger.AppendChild(openingBalance);
-                        ledger.AppendChild(isBillWiseOn);
+                        ledger.AppendChild(isBillWiseOn);*/
 
                         // assign properties to element
                         tallyMesssage.SetAttribute("xmlns:UDF", "TallyUDF");
-                        ledger.SetAttribute("NAME", name.InnerText);
-                        ledger.SetAttribute("Action", "Create");
+                       /////// ledger.SetAttribute("NAME", name.InnerText);
+                        ledger.SetAttribute("Action", "Create"); 
+
+
+                        /////Fetching column name of data table dgv 
+                        string[] columnNames = dt.Columns.Cast<DataColumn>()
+                                                  .Select(x => x.ColumnName)
+                                                  .ToArray();
+
+                        List<XmlElement> colList = new List<XmlElement>();
+
+                        for (int k = 0; k < columnNames.Length; k++)
+                        {
+
+                            string col = columnNames[k];
+                            XmlElement x = doc.CreateElement(col);
+
+                            colList.Add(x);
+
+                        }
+
+                        for (int j = 0; j < colList.Count; j++ )
+                        {
+                            var y = colList[j];
+                            y.InnerText = dt.Rows[i].ItemArray[j].ToString();
+
+                            ledger.AppendChild(y);
+
+                            if (y.Name == "NAME")
+                           ledger.SetAttribute("NAME", y.InnerText);
+                           
+                        }
 
 
                         requestData.AppendChild(tallyMesssage);
@@ -422,11 +455,11 @@ namespace LedgerCreation
              string strXml = doc.InnerXml.ToString();
              Console.WriteLine(strXml);
               doc.Save("C:/Users/Birendra Kumar/Desktop/Tally Integration Doc-23Mar-21/Output1.xml");
-              lblMessage.Text = "XMl file is created";  
+              lblMessage.Text = "XMl file has been created";  
 
             // sending request to tally to create ledger according to xml document
                 string IRespose = SendReqst(strXml);  
-                lblMessage.Text = "Created Ledger in Tally";
+                lblMessage.Text = "Created Ledger in Tally"; 
             }
 
         private void btnPost_Click(object sender, EventArgs e)
@@ -468,9 +501,6 @@ namespace LedgerCreation
             
         }
 
-       
-      
-
-
+    
     }
 
