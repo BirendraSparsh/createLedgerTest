@@ -44,8 +44,8 @@ namespace LedgerCreation
          //   else 
          //   {
                 TallyCollectionConnection.Open();
-                OdbcCommand TallyCommand = new OdbcCommand("Select $NARRATION From TESTER.TallyUser.Vouchers", TallyCollectionConnection);
-                //OdbcCommand TallyCommand = new OdbcCommand("Select $Name,$Parent,$OpeningBalance,$MAILINGNAME,$LEDSTATENAME,$COUNTRYNAME,$PINCODE From Ledger", TallyCollectionConnection);
+                //OdbcCommand TallyCommand = new OdbcCommand("Select $NARRATION From TESTER.TallyUser.Vouchers", TallyCollectionConnection);
+                OdbcCommand TallyCommand = new OdbcCommand("Select $Name,$Parent,$OpeningBalance,$MAILINGNAME,$LEDSTATENAME,$COUNTRYNAME,$PINCODE From Ledger", TallyCollectionConnection);
                 //OdbcCommand TallyCommand = new OdbcCommand("Select $Name,$Parent,$OpeningBalance From Ledger", TallyCollectionConnection);
                 //OdbcCommand TallyCommand = new OdbcCommand("SELECT StockItem.$Name, StockItem.$Parent FROM TESTER.TallyUser.StockItem ORDER BY StockItem.$Name", TallyCollectionConnection);
                 OdbcDataAdapter TallyDataAdapter = new OdbcDataAdapter(TallyCommand);
