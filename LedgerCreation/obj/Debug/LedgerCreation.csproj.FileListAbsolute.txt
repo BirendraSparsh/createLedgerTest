@@ -7,10 +7,13 @@ E:\ananth\projects\LedgerCreation\LedgerCreation\bin\Debug\LedgerCreation.exe
 E:\ananth\projects\LedgerCreation\LedgerCreation\bin\Debug\LedgerCreation.pdb
 E:\ananth\projects\LedgerCreation\LedgerCreation\obj\Debug\LedgerCreation.exe
 E:\ananth\projects\LedgerCreation\LedgerCreation\obj\Debug\LedgerCreation.pdb
-G:\LedgerCreation\LedgerCreation\bin\Debug\LedgerCreation.exe
+G:\LedgerCreation\LedgerCreation\obj\Debug\LedgerCreation.pdb
 G:\LedgerCreation\LedgerCreation\bin\Debug\LedgerCreation.exe.config
+G:\LedgerCreation\LedgerCreation\bin\Debug\LedgerCreation.exe
+G:\LedgerCreation\LedgerCreation\bin\Debug\LedgerCreation.pdb
 G:\LedgerCreation\LedgerCreation\bin\Debug\Newtonsoft.Json.dll
 G:\LedgerCreation\LedgerCreation\bin\Debug\Newtonsoft.Json.xml
+G:\LedgerCreation\LedgerCreation\obj\Debug\LedgerCreation.csprojResolveAssemblyReference.cache
 G:\LedgerCreation\LedgerCreation\obj\Debug\LedgerCreation.frmExcelToXml1.resources
 G:\LedgerCreation\LedgerCreation\obj\Debug\LedgerCreation.frmLedger.resources
 G:\LedgerCreation\LedgerCreation\obj\Debug\LedgerCreation.frmMoveControl.resources
@@ -21,11 +24,8 @@ G:\LedgerCreation\LedgerCreation\obj\Debug\LedgerCreation.frmLedDel.resources
 G:\LedgerCreation\LedgerCreation\obj\Debug\LedgerCreation.frmRecVoucher.resources
 G:\LedgerCreation\LedgerCreation\obj\Debug\LedgerCreation.frmDashBoard.resources
 G:\LedgerCreation\LedgerCreation\obj\Debug\LedgerCreation.frmVoucherAlter.resources
-G:\LedgerCreation\LedgerCreation\obj\Debug\LedgerCreation.frmVouchersReport.resources
 G:\LedgerCreation\LedgerCreation\obj\Debug\LedgerCreation.frmXML_Conn.resources
 G:\LedgerCreation\LedgerCreation\obj\Debug\LedgerCreation.Properties.Resources.resources
 G:\LedgerCreation\LedgerCreation\obj\Debug\LedgerCreation.csproj.GenerateResource.Cache
 G:\LedgerCreation\LedgerCreation\obj\Debug\LedgerCreation.exe
-G:\LedgerCreation\LedgerCreation\obj\Debug\LedgerCreation.pdb
-G:\LedgerCreation\LedgerCreation\bin\Debug\LedgerCreation.pdb
-G:\LedgerCreation\LedgerCreation\obj\Debug\LedgerCreation.csprojResolveAssemblyReference.cache
+G:\LedgerCreation\LedgerCreation\obj\Debug\LedgerCreation.frmDayBookSales.resources

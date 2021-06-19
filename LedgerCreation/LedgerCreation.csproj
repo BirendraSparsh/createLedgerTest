@@ -108,11 +108,11 @@
     <Compile Include="frmVoucherAlter.Designer.cs">
       <DependentUpon>frmVoucherAlter.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmVouchersReport.cs">
+    <Compile Include="frmDayBookSales.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmVouchersReport.Designer.cs">
-      <DependentUpon>frmVouchersReport.cs</DependentUpon>
+    <Compile Include="frmDayBookSales.Designer.cs">
+      <DependentUpon>frmDayBookSales.cs</DependentUpon>
     </Compile>
     <Compile Include="frmXML_Conn.cs">
       <SubType>Form</SubType>
@@ -153,8 +153,8 @@
     <EmbeddedResource Include="frmVoucherAlter.resx">
       <DependentUpon>frmVoucherAlter.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmVouchersReport.resx">
-      <DependentUpon>frmVouchersReport.cs</DependentUpon>
+    <EmbeddedResource Include="frmDayBookSales.resx">
+      <DependentUpon>frmDayBookSales.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmXML_Conn.resx">
       <DependentUpon>frmXML_Conn.cs</DependentUpon>

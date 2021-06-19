@@ -126,7 +126,7 @@ namespace LedgerCreation
              }
          }
 
-         private void button2_Click(object sender, EventArgs e)
+         private void btnGetLedger_Click(object sender, EventArgs e) //get ledger 
          {
              // passing this xml to tally for requesting list of ledger name
              string RequestXML = "<ENVELOPE><HEADER><TALLYREQUEST>Export Data</TALLYREQUEST></HEADER><BODY><EXPORTDATA><REQUESTDESC><REPORTNAME>List of Accounts</REPORTNAME><STATICVARIABLES><SVEXPORTFORMAT>$$SysName:XML</SVEXPORTFORMAT><ACCOUNTTYPE>Ledgers</ACCOUNTTYPE></STATICVARIABLES></REQUESTDESC></EXPORTDATA></BODY></ENVELOPE>";
