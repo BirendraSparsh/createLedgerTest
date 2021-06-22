@@ -78,6 +78,15 @@ namespace LedgerCreation
 
         }
 
+        private void btnDayBook_Click(object sender, EventArgs e)
+        {
+            panel2.Controls.Clear();
+            frmDayBook f = new frmDayBook();
+            f.TopLevel = false;
+            panel2.Controls.Add(f);
+            f.Show();
+        }
+
       
 
 

@@ -45,6 +45,8 @@ namespace LedgerCreation
             
             // Get the response.
             WebResponse response = TallyRequest.GetResponse();
+
+           
             // Display the status.
             string Response = (((HttpWebResponse)response).StatusDescription).ToString();
             // Get the stream containing content returned by the server.
@@ -54,7 +56,7 @@ namespace LedgerCreation
             // Read the content.
             responseFromTallyServer = reader.ReadToEnd().ToString();
 
-
+           
             // Display the content.
             // Clean up the streams.
             reader.Close();
@@ -64,8 +66,9 @@ namespace LedgerCreation
             response = null;
             Response = null;
             dataStream = null;
+          
             return responseFromTallyServer;
-
+          
 
         }
 

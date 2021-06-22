@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnVoucherAlter = new System.Windows.Forms.Button();
             this.btnRecVoucher = new System.Windows.Forms.Button();
             this.btnStockItem = new System.Windows.Forms.Button();
             this.btnDel = new System.Windows.Forms.Button();
             this.btnAlter = new System.Windows.Forms.Button();
             this.btnCreate = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.bkpAlter = new System.Windows.Forms.Button();
+            this.btnDayBook = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,7 +44,8 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.bkpAlter);
+            this.panel1.Controls.Add(this.btnDayBook);
+            this.panel1.Controls.Add(this.btnVoucherAlter);
             this.panel1.Controls.Add(this.btnRecVoucher);
             this.panel1.Controls.Add(this.btnStockItem);
             this.panel1.Controls.Add(this.btnDel);
@@ -53,6 +55,20 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(197, 418);
             this.panel1.TabIndex = 0;
+            // 
+            // btnVoucherAlter
+            // 
+            this.btnVoucherAlter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnVoucherAlter.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnVoucherAlter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVoucherAlter.ForeColor = System.Drawing.Color.White;
+            this.btnVoucherAlter.Location = new System.Drawing.Point(11, 207);
+            this.btnVoucherAlter.Name = "btnVoucherAlter";
+            this.btnVoucherAlter.Size = new System.Drawing.Size(164, 23);
+            this.btnVoucherAlter.TabIndex = 6;
+            this.btnVoucherAlter.Text = "Alter Voucher";
+            this.btnVoucherAlter.UseVisualStyleBackColor = false;
+            this.btnVoucherAlter.Click += new System.EventHandler(this.bkpAlter_Click);
             // 
             // btnRecVoucher
             // 
@@ -132,19 +148,19 @@
             this.panel2.Size = new System.Drawing.Size(738, 418);
             this.panel2.TabIndex = 1;
             // 
-            // bkpAlter
+            // btnDayBook
             // 
-            this.bkpAlter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bkpAlter.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bkpAlter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bkpAlter.ForeColor = System.Drawing.Color.White;
-            this.bkpAlter.Location = new System.Drawing.Point(11, 207);
-            this.bkpAlter.Name = "bkpAlter";
-            this.bkpAlter.Size = new System.Drawing.Size(164, 23);
-            this.bkpAlter.TabIndex = 6;
-            this.bkpAlter.Text = "Alter Voucher";
-            this.bkpAlter.UseVisualStyleBackColor = false;
-            this.bkpAlter.Click += new System.EventHandler(this.bkpAlter_Click);
+            this.btnDayBook.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnDayBook.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnDayBook.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDayBook.ForeColor = System.Drawing.Color.White;
+            this.btnDayBook.Location = new System.Drawing.Point(5, 240);
+            this.btnDayBook.Name = "btnDayBook";
+            this.btnDayBook.Size = new System.Drawing.Size(164, 23);
+            this.btnDayBook.TabIndex = 7;
+            this.btnDayBook.Text = "Day Book";
+            this.btnDayBook.UseVisualStyleBackColor = false;
+            this.btnDayBook.Click += new System.EventHandler(this.btnDayBook_Click);
             // 
             // frmDashBoard
             // 
@@ -172,6 +188,7 @@
         private System.Windows.Forms.Button btnDel;
         private System.Windows.Forms.Button btnStockItem;
         private System.Windows.Forms.Button btnRecVoucher;
-        private System.Windows.Forms.Button bkpAlter;
+        private System.Windows.Forms.Button btnVoucherAlter;
+        private System.Windows.Forms.Button btnDayBook;
     }
 }

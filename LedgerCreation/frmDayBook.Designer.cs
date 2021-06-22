@@ -1,6 +1,6 @@
 ﻿namespace LedgerCreation
 {
-    partial class frmDayBookSales
+    partial class frmDayBook
     {
         /// <summary>
         /// Required designer variable.
@@ -38,13 +38,15 @@
             this.dtpToDate = new System.Windows.Forms.DateTimePicker();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cmbVoucherTypeName = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // btnPost
             // 
-            this.btnPost.Location = new System.Drawing.Point(521, 18);
+            this.btnPost.Location = new System.Drawing.Point(520, 20);
             this.btnPost.Name = "btnPost";
             this.btnPost.Size = new System.Drawing.Size(131, 23);
             this.btnPost.TabIndex = 0;
@@ -56,27 +58,27 @@
             // 
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(63, 96);
+            this.dataGridView1.Location = new System.Drawing.Point(72, 108);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(110, 145);
+            this.dataGridView1.Size = new System.Drawing.Size(337, 145);
             this.dataGridView1.TabIndex = 1;
             // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(29, 303);
+            this.listBox1.Location = new System.Drawing.Point(394, 351);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(144, 82);
+            this.listBox1.Size = new System.Drawing.Size(144, 56);
             this.listBox1.TabIndex = 2;
             this.listBox1.Visible = false;
             // 
             // listBox2
             // 
             this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(195, 303);
+            this.listBox2.Location = new System.Drawing.Point(592, 351);
             this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(144, 82);
+            this.listBox2.Size = new System.Drawing.Size(144, 56);
             this.listBox2.TabIndex = 4;
             this.listBox2.Visible = false;
             // 
@@ -116,29 +118,49 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(363, 294);
+            this.button1.Location = new System.Drawing.Point(726, 14);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 10;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // dataGridView2
             // 
             this.dataGridView2.AllowUserToDeleteRows = false;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(61, 58);
+            this.dataGridView2.Location = new System.Drawing.Point(63, 91);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.Size = new System.Drawing.Size(652, 200);
+            this.dataGridView2.Size = new System.Drawing.Size(600, 225);
             this.dataGridView2.TabIndex = 11;
             // 
-            // frmVouchersReport
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(60, 54);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(105, 13);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Voucher Type Name";
+            // 
+            // cmbVoucherTypeName
+            // 
+            this.cmbVoucherTypeName.FormattingEnabled = true;
+            this.cmbVoucherTypeName.Location = new System.Drawing.Point(201, 51);
+            this.cmbVoucherTypeName.Name = "cmbVoucherTypeName";
+            this.cmbVoucherTypeName.Size = new System.Drawing.Size(153, 21);
+            this.cmbVoucherTypeName.TabIndex = 13;
+            // 
+            // frmDayBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(952, 419);
+            this.Controls.Add(this.cmbVoucherTypeName);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dtpToDate);
@@ -149,8 +171,10 @@
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnPost);
-            this.Name = "frmVouchersReport";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "frmDayBook";
             this.Text = "Day Book (Sales )";
+            this.Load += new System.EventHandler(this.frmDayBookSales_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
@@ -170,5 +194,7 @@
         private System.Windows.Forms.DateTimePicker dtpToDate;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cmbVoucherTypeName;
     }
 }

@@ -28,4 +28,4 @@ G:\LedgerCreation\LedgerCreation\obj\Debug\LedgerCreation.frmXML_Conn.resources
 G:\LedgerCreation\LedgerCreation\obj\Debug\LedgerCreation.Properties.Resources.resources
 G:\LedgerCreation\LedgerCreation\obj\Debug\LedgerCreation.csproj.GenerateResource.Cache
 G:\LedgerCreation\LedgerCreation\obj\Debug\LedgerCreation.exe
-G:\LedgerCreation\LedgerCreation\obj\Debug\LedgerCreation.frmDayBookSales.resources
+G:\LedgerCreation\LedgerCreation\obj\Debug\LedgerCreation.frmDayBook.resources

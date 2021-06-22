@@ -14,24 +14,53 @@ using System.Xml;
 
 namespace LedgerCreation
 {
-    public partial class frmDayBookSales : Form
+    public partial class frmDayBook : Form
     {
-        public frmDayBookSales()
+        public frmDayBook()
         {
             InitializeComponent();
         }
 
         private void btnPost_Click(object sender, EventArgs e)
         {
-           // <!--This XML document contains tags to fetch SALES-type Vouchers of from Tally-->
-           //<!--It is equivalent to using the following option in Tally Software manually-->
-           //<!--Option: Gateway of Tally @Display @Daybook  @F4  @Sales-->
+            
+            //fiter data gridview according to date
+            DataTable dt = new DataTable();
+            foreach (DataGridViewColumn col in dataGridView1.Columns)
+            {
+                dt.Columns.Add(col.HeaderText);
+            }
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                DataRow dRow = dt.NewRow();
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    dRow[cell.ColumnIndex] = cell.Value;
+                }
+                dt.Rows.Add(dRow);
+            }
+            DataView dv = new DataView(dt);
+            string s = cmbVoucherTypeName.GetItemText(cmbVoucherTypeName.SelectedItem);
+            dv.RowFilter = "(Date >= #" + Convert.ToDateTime(dtpFromDate.Text).ToString("MM/dd/yyyy") + "# And Date <= #" + Convert.ToDateTime(dtpToDate.Text).ToString("MM/dd/yyyy") + "#  And VOUCHERTYPENAME = '" + s + "')";
+            var source = new BindingSource();
+
+            source.DataSource = dv;
+
+            dataGridView2.DataSource = source;  
+           
+        }
+
+        public void daybookXmlPost()
+        {
+            // <!--This XML document contains tags to fetch SALES-type Vouchers of from Tally-->
+            //<!--It is equivalent to using the following option in Tally Software manually-->
+            //<!--Option: Gateway of Tally @Display @Daybook  @F4  @Sales-->
             dayBookSales daybooksales = new dayBookSales();
-            daybooksales.vouchertypename = "PURCHASE";
-           /* daybooksales.fromDate = dtpFromDate.Value;
-            string strFromDate = daybooksales.fromDate.ToString("yyyyMMdd");
-            daybooksales.toDate = dtpToDate.Value;
-            string strToDate = daybooksales.toDate.ToString("yyyyMMdd"); */
+            daybooksales.vouchertypename = cmbVoucherTypeName.GetItemText(cmbVoucherTypeName.SelectedItem);
+            /* daybooksales.fromDate = dtpFromDate.Value;
+             string strFromDate = daybooksales.fromDate.ToString("yyyyMMdd");
+             daybooksales.toDate = dtpToDate.Value;
+             string strToDate = daybooksales.toDate.ToString("yyyyMMdd"); */
 
             string RequestXML = "<ENVELOPE>" +
                                 "<HEADER>" +
@@ -67,90 +96,108 @@ namespace LedgerCreation
             //show list of leadger name
             XmlNodeList xmlNodeList = xml.SelectNodes("//BODY/IMPORTDATA/REQUESTDATA/TALLYMESSAGE");
             //// XmlNodeList nodes = xml.GetElementsByTagName("NAME");
-            
-           
+
+
             List<string> listOfName = new List<string>();  // list of xml element Name
             List<string> listOfValue = new List<string>();  // list of xml element Value
             foreach (XmlNode xmlNode in xmlNodeList)
             {
-               
+
                 foreach (XmlNode xmlNodeChild in xmlNode)
                 {
-                    
+
                     foreach (XmlNode xmlNodeChildChild in xmlNodeChild)
                     {
-                     
+
                         string xmlElementName = xmlNodeChildChild.Name;
                         string xmlElementValue = xmlNodeChildChild.InnerText;
 
-                       // if (xmlElementName == "DATE" || xmlElementName == "PARTYNAME" || xmlElementName == "VOUCHERTYPENAME" || xmlElementName == "VOUCHERNUMBER" || xmlElementName == "PARTYLEDGERNAME")
-                       if (xmlElementName == "DATE")
+                        // if (xmlElementName == "DATE" || xmlElementName == "PARTYNAME" || xmlElementName == "VOUCHERTYPENAME" || xmlElementName == "VOUCHERNUMBER" || xmlElementName == "PARTYLEDGERNAME")
+                        if (xmlElementName == "DATE")
                         {
-                           string strDate =  ConvertStringToDate(xmlElementValue);
-                           DateTime d =  Convert.ToDateTime(strDate);
+                            string strDate = ConvertStringToDate(xmlElementValue);
+                            DateTime d = Convert.ToDateTime(strDate);
 
                             listOfName.Add(xmlElementName);
                             //CultureInfo culture = new CultureInfo("en-US");
                             //DateTime dtDate = Convert.ToDateTime(strDate, culture);
                             listOfValue.Add(strDate);
                         }
-                       else if(xmlElementName == "PARTYNAME")
-                       {
-                           listOfName.Add(xmlElementName);
-                           listOfValue.Add(xmlElementValue);
-                       }
-                       else if( xmlElementName == "VOUCHERTYPENAME")
-                       {
-                           listOfName.Add(xmlElementName);
-                           listOfValue.Add(xmlElementValue);
-                       }
-                       else if (xmlElementName == "VOUCHERNUMBER")
-                       {
-                           listOfName.Add(xmlElementName);
-                           listOfValue.Add(xmlElementValue);
-                       }
-                       else if(xmlElementName == "PARTYLEDGERNAME")
-                       {
-                           listOfName.Add(xmlElementName);
-                           listOfValue.Add(xmlElementValue);
+                        else if (xmlElementName == "PARTYNAME")
+                        {
+                            listOfName.Add(xmlElementName);
+                            listOfValue.Add(xmlElementValue);
+                        }
+                        else if (xmlElementName == "VOUCHERTYPENAME")
+                        {
+                            listOfName.Add(xmlElementName);
+                            listOfValue.Add(xmlElementValue);
+                        }
+                        else if (xmlElementName == "VOUCHERNUMBER")
+                        {
+                            listOfName.Add(xmlElementName);
+                            listOfValue.Add(xmlElementValue);
+                        }
+                        else if (xmlElementName == "PARTYLEDGERNAME")
+                        {
+                            listOfName.Add(xmlElementName);
+                            listOfValue.Add(xmlElementValue);
 
-                       }
-                         
+                        }
+
                     }
 
                 }
 
-               
+
             }
 
-                //remove all rows from datagridview
-               dataGridView1.Rows.Clear();
+            //remove all rows from datagridview
+            dataGridView1.Rows.Clear();
 
-                //remove duplicate element
-                IEnumerable<string> uniqueListOfName = listOfName.Distinct();
-                //add datagridview column name
-                int m = 0;
-                 dataGridView1.ColumnCount = uniqueListOfName.Count();
-                  foreach (var item in uniqueListOfName)
-                  {
-                      dataGridView1.ColumnCount = uniqueListOfName.Count();
-                      dataGridView1.Columns[m].Name = item;  // set column name of dataGridView1
-                      m++;
-                  }
-                  //add row to datagridview1 - filiing datagridview1
-                  List<List<string>> SplitOfList2 = class1.Split(listOfValue, uniqueListOfName.Count()); //spliting the list according to column no.
-                  foreach (List<string> items in SplitOfList2)
-                  {
+            //remove duplicate element
+            IEnumerable<string> uniqueListOfName = listOfName.Distinct();
+            //add datagridview column name
+            int m = 0;
+            dataGridView1.ColumnCount = uniqueListOfName.Count();
+            foreach (var item in uniqueListOfName)
+            {
+                dataGridView1.ColumnCount = uniqueListOfName.Count();
+                dataGridView1.Columns[m].Name = item;  // set column name of dataGridView1
+                m++;
+            }
+            //add row to datagridview1 - filiing datagridview1
+            List<List<string>> SplitOfList2 = class1.Split(listOfValue, uniqueListOfName.Count()); //spliting the list according to column no.
+            foreach (List<string> items in SplitOfList2)
+            {
 
-                      string[] array1 = new string[2];
-                      array1 = items.ToArray();
-                      dataGridView1.Rows.Add(array1);
+                string[] array1 = new string[2];
+                array1 = items.ToArray();
+                dataGridView1.Rows.Add(array1);
 
-                  } 
-                
-             
+            }
 
-            //fiter data gridview according to date
+            //get the all value of column VOUCHERTUPENAME conbobox
+            List<string> listOfVoucherTypeName = new List<string>();
+            int i = 0;
+            foreach (DataGridViewRow item in dataGridView1.Rows)
+            {
+                if (i < dataGridView1.Rows.Count - 1)
+                    listOfVoucherTypeName.Add(item.Cells[2].Value.ToString());
+                i++;
+            }
+            i = 0;
+
+
+            IEnumerable<string> UniquelistOfVoucherTypeName = listOfVoucherTypeName.Distinct();
+            // put list item into combobox
+            foreach (string item in UniquelistOfVoucherTypeName)
+            {
+                cmbVoucherTypeName.Items.Add(item);
+            }
+
+            
+         /*   //fiter data gridview according to date
             DataTable dt = new DataTable();
             foreach (DataGridViewColumn col in dataGridView1.Columns)
             {
@@ -173,7 +220,7 @@ namespace LedgerCreation
 
             source.DataSource = dv;
 
-            dataGridView2.DataSource = source; 
+            dataGridView2.DataSource = source;  */
 
 
 
@@ -188,9 +235,8 @@ namespace LedgerCreation
                 listBox2.Items.Add(item2);
             } */
    
-           
-        }
 
+        }
         public string ConvertStringToDate(string strDate)
         {
             string strYear = strDate.Substring(0, 4);
@@ -202,7 +248,28 @@ namespace LedgerCreation
 
         private void button1_Click(object sender, EventArgs e)
         {
+                // List<string> listOfVoucherTypeName = new List<string>();
+
+                // int i = 0;
+                // foreach (DataGridViewRow item in dataGridView1.Rows)
+                // {
+                     
+                //     if (  i < dataGridView1.Rows.Count-1 )
+                //         listOfVoucherTypeName.Add(item.Cells[2].Value.ToString());
+                //     i++;
+                // }
+                // i = 0;
+                //// put list item into combobox
+                //foreach (string item in listOfVoucherTypeName)
+                //{
+                //    cmbVoucherTypeName.Items.Add(item);
+                //}
            
+        }
+
+        private void frmDayBookSales_Load(object sender, EventArgs e)
+        {
+            daybookXmlPost();
         }
 
 
