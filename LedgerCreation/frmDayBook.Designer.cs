@@ -58,7 +58,7 @@
             // 
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(72, 108);
+            this.dataGridView1.Location = new System.Drawing.Point(20, 108);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(337, 145);
@@ -118,9 +118,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(726, 14);
+            this.button1.Location = new System.Drawing.Point(759, 21);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(75, 22);
             this.button1.TabIndex = 10;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
@@ -131,16 +131,16 @@
             // 
             this.dataGridView2.AllowUserToDeleteRows = false;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(63, 91);
+            this.dataGridView2.Location = new System.Drawing.Point(12, 93);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.Size = new System.Drawing.Size(600, 225);
+            this.dataGridView2.Size = new System.Drawing.Size(838, 237);
             this.dataGridView2.TabIndex = 11;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(60, 54);
+            this.label3.Location = new System.Drawing.Point(62, 57);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(105, 13);
             this.label3.TabIndex = 12;
@@ -149,7 +149,9 @@
             // cmbVoucherTypeName
             // 
             this.cmbVoucherTypeName.FormattingEnabled = true;
-            this.cmbVoucherTypeName.Location = new System.Drawing.Point(201, 51);
+            this.cmbVoucherTypeName.Items.AddRange(new object[] {
+            "All"});
+            this.cmbVoucherTypeName.Location = new System.Drawing.Point(194, 55);
             this.cmbVoucherTypeName.Name = "cmbVoucherTypeName";
             this.cmbVoucherTypeName.Size = new System.Drawing.Size(153, 21);
             this.cmbVoucherTypeName.TabIndex = 13;

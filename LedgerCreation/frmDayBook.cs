@@ -40,13 +40,28 @@ namespace LedgerCreation
                 dt.Rows.Add(dRow);
             }
             DataView dv = new DataView(dt);
-            string s = cmbVoucherTypeName.GetItemText(cmbVoucherTypeName.SelectedItem);
-            dv.RowFilter = "(Date >= #" + Convert.ToDateTime(dtpFromDate.Text).ToString("MM/dd/yyyy") + "# And Date <= #" + Convert.ToDateTime(dtpToDate.Text).ToString("MM/dd/yyyy") + "#  And VOUCHERTYPENAME = '" + s + "')";
+            string vchtypename = cmbVoucherTypeName.GetItemText(cmbVoucherTypeName.SelectedItem);
+
+
+            if ((vchtypename == "All"))  /////(vchtypename == string.Empty) ||
+            {
+                dv.RowFilter = "(Date >= #" + Convert.ToDateTime(dtpFromDate.Text).ToString("MM/dd/yyyy") + "# And Date <= #" + Convert.ToDateTime(dtpToDate.Text).ToString("MM/dd/yyyy") + "# )";  //AND VOUCHERTYPENAME = '" + s + "'
+            }
+            else 
+            {
+
+                dv.RowFilter = "(Date >= #" + Convert.ToDateTime(dtpFromDate.Text).ToString("MM/dd/yyyy") + "# And Date <= #" + Convert.ToDateTime(dtpToDate.Text).ToString("MM/dd/yyyy") + "# AND VOUCHERTYPENAME = '" + vchtypename + "')";  //
+            } 
+            
             var source = new BindingSource();
 
             source.DataSource = dv;
 
-            dataGridView2.DataSource = source;  
+            dataGridView2.DataSource = source;
+
+            // set width of datagridview
+            dataGridView2.AutoResizeColumns();
+            dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
            
         }
 

@@ -29,3 +29,4 @@ G:\LedgerCreation\LedgerCreation\obj\Debug\LedgerCreation.Properties.Resources.r
 G:\LedgerCreation\LedgerCreation\obj\Debug\LedgerCreation.csproj.GenerateResource.Cache
 G:\LedgerCreation\LedgerCreation\obj\Debug\LedgerCreation.exe
 G:\LedgerCreation\LedgerCreation\obj\Debug\LedgerCreation.frmDayBook.resources
+G:\LedgerCreation\LedgerCreation\obj\Debug\LedgerCreation.frmStockSummary.resources

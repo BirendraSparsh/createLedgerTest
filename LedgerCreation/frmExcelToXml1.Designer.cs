@@ -210,9 +210,9 @@
             // dgv
             // 
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv.Location = new System.Drawing.Point(651, 71);
+            this.dgv.Location = new System.Drawing.Point(653, 71);
             this.dgv.Name = "dgv";
-            this.dgv.Size = new System.Drawing.Size(315, 289);
+            this.dgv.Size = new System.Drawing.Size(325, 289);
             this.dgv.TabIndex = 17;
             // 
             // btnConvertToXml
@@ -244,7 +244,7 @@
             // lblMessage
             // 
             this.lblMessage.AutoSize = true;
-            this.lblMessage.Location = new System.Drawing.Point(9, 537);
+            this.lblMessage.Location = new System.Drawing.Point(9, 514);
             this.lblMessage.Name = "lblMessage";
             this.lblMessage.Size = new System.Drawing.Size(50, 13);
             this.lblMessage.TabIndex = 22;
@@ -255,9 +255,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(20, 214);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(81, 13);
+            this.label3.Size = new System.Drawing.Size(70, 13);
             this.label3.TabIndex = 23;
-            this.label3.Text = "Ledger Element";
+            this.label3.Text = "Tally Element";
             // 
             // label4
             // 
@@ -272,7 +272,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(990, 559);
+            this.ClientSize = new System.Drawing.Size(990, 536);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblMessage);
@@ -296,6 +296,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnBrowse);
             this.Controls.Add(this.txtFile);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmExcelToXml1";
             this.Text = "Create Ledger from Excel File";
             this.Load += new System.EventHandler(this.frmExcelToXml1_Load);
