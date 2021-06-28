@@ -48,11 +48,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsMenu.cs" />
     <Compile Include="frmExcelToXml1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmExcelToXml1.Designer.cs">
       <DependentUpon>frmExcelToXml1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmExcelToXmlSales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmExcelToXmlSales.Designer.cs">
+      <DependentUpon>frmExcelToXmlSales.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLedger.cs">
       <SubType>Form</SubType>
@@ -102,6 +109,12 @@
     <Compile Include="frmDashBoard.Designer.cs">
       <DependentUpon>frmDashBoard.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmTemplate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTemplate.Designer.cs">
+      <DependentUpon>frmTemplate.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmVoucherAlter.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +145,9 @@
     <EmbeddedResource Include="frmExcelToXml1.resx">
       <DependentUpon>frmExcelToXml1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmExcelToXmlSales.resx">
+      <DependentUpon>frmExcelToXmlSales.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLedger.resx">
       <DependentUpon>frmLedger.cs</DependentUpon>
     </EmbeddedResource>
@@ -158,6 +174,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmStockSummary.resx">
       <DependentUpon>frmStockSummary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTemplate.resx">
+      <DependentUpon>frmTemplate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmVoucherAlter.resx">
       <DependentUpon>frmVoucherAlter.cs</DependentUpon>

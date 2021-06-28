@@ -52,7 +52,7 @@ namespace LedgerCreation
                 string strParticular = comboParticular.Text;
 
                 xmlstc = xmlstc + "<TALLYMESSAGE >";
-                xmlstc = xmlstc + "<VOUCHER VCHTYPE=" + "\"" + "Receipt" + "\" ACTION=" + "\"" + "Alter" + "\">";
+                xmlstc = xmlstc + "<VOUCHER VCHTYPE=" + "\"" + "Receipt" + "\" ACTION=" + "\"" + "Create" + "\">";
                 xmlstc = xmlstc + "<VOUCHERNUMBER>" + strVchNumber + "</VOUCHERNUMBER>";
                 xmlstc = xmlstc + "<DATE>" + strDate + "</DATE>";
                 xmlstc = xmlstc + "<EFFECTIVEDATE>" + strDate + "</EFFECTIVEDATE>";

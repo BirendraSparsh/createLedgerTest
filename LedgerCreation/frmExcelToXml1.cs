@@ -172,7 +172,8 @@ namespace LedgerCreation
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
-        {  //adding column and rows in datagridview from combo
+        {  
+            //adding column and rows in datagridview from combo
             string[] str1 = new string[2];
             str1[0] = comboTally.GetItemText(comboTally.SelectedItem);
             str1[1] = comboExcel.GetItemText(comboExcel.SelectedItem);
@@ -235,7 +236,8 @@ namespace LedgerCreation
         }
 
         private void btnLoadJsonFile_Click(object sender, EventArgs e)  
-        { // read json file 
+        { 
+            // read json file 
             string JsonText="";
             if (txtJsonFile1.Text != string.Empty)
             {
@@ -332,7 +334,7 @@ namespace LedgerCreation
         private void btnConvertToXml_Click(object sender, EventArgs e)
         {
 
-             //------Adding column to data table and row-------//
+              //------Adding column to data table and row-------//
             int i = 0;  
             int row_Count = 0;  
             DataTable dt = new DataTable("Report1");

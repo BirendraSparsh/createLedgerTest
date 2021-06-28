@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnExcelToXml = new System.Windows.Forms.Button();
             this.btnDayBook = new System.Windows.Forms.Button();
             this.btnVoucherAlter = new System.Windows.Forms.Button();
             this.btnRecVoucher = new System.Windows.Forms.Button();
@@ -37,20 +38,26 @@
             this.btnAlter = new System.Windows.Forms.Button();
             this.btnCreate = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnExcelToXml = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.integrateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.excelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ledgerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ledgerToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.voucherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.salesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.templateMasterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.templateVoucherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.settingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mangaeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.syncronisationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.createLedgerByExcelFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createLedgerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alterLedgerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteLedgerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createReceiptVoucherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alterVoucherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stockItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dayBooksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.syncronisationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -72,6 +79,20 @@
             this.panel1.Size = new System.Drawing.Size(168, 177);
             this.panel1.TabIndex = 0;
             this.panel1.Visible = false;
+            // 
+            // btnExcelToXml
+            // 
+            this.btnExcelToXml.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnExcelToXml.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnExcelToXml.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExcelToXml.ForeColor = System.Drawing.Color.White;
+            this.btnExcelToXml.Location = new System.Drawing.Point(5, 242);
+            this.btnExcelToXml.Name = "btnExcelToXml";
+            this.btnExcelToXml.Size = new System.Drawing.Size(164, 23);
+            this.btnExcelToXml.TabIndex = 8;
+            this.btnExcelToXml.Text = "Create Ledger by Excel file";
+            this.btnExcelToXml.UseVisualStyleBackColor = false;
+            this.btnExcelToXml.Click += new System.EventHandler(this.btnExcelToXml_Click);
             // 
             // btnDayBook
             // 
@@ -176,22 +197,8 @@
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Location = new System.Drawing.Point(7, 36);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1066, 531);
+            this.panel2.Size = new System.Drawing.Size(1066, 560);
             this.panel2.TabIndex = 1;
-            // 
-            // btnExcelToXml
-            // 
-            this.btnExcelToXml.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnExcelToXml.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnExcelToXml.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExcelToXml.ForeColor = System.Drawing.Color.White;
-            this.btnExcelToXml.Location = new System.Drawing.Point(5, 242);
-            this.btnExcelToXml.Name = "btnExcelToXml";
-            this.btnExcelToXml.Size = new System.Drawing.Size(164, 23);
-            this.btnExcelToXml.TabIndex = 8;
-            this.btnExcelToXml.Text = "Create Ledger by Excel file";
-            this.btnExcelToXml.UseVisualStyleBackColor = false;
-            this.btnExcelToXml.Click += new System.EventHandler(this.btnExcelToXml_Click);
             // 
             // menuStrip1
             // 
@@ -209,10 +216,72 @@
             // integrateToolStripMenuItem
             // 
             this.integrateToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.createLedgerByExcelFileToolStripMenuItem});
+            this.excelToolStripMenuItem});
             this.integrateToolStripMenuItem.Name = "integrateToolStripMenuItem";
             this.integrateToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.integrateToolStripMenuItem.Text = "Integrate";
+            // 
+            // excelToolStripMenuItem
+            // 
+            this.excelToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ledgerToolStripMenuItem,
+            this.voucherToolStripMenuItem,
+            this.templateMasterToolStripMenuItem,
+            this.templateVoucherToolStripMenuItem,
+            this.settingToolStripMenuItem});
+            this.excelToolStripMenuItem.Name = "excelToolStripMenuItem";
+            this.excelToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.excelToolStripMenuItem.Text = "Excel";
+            // 
+            // ledgerToolStripMenuItem
+            // 
+            this.ledgerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ledgerToolStripMenuItem1});
+            this.ledgerToolStripMenuItem.Name = "ledgerToolStripMenuItem";
+            this.ledgerToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.ledgerToolStripMenuItem.Text = "Master";
+            // 
+            // ledgerToolStripMenuItem1
+            // 
+            this.ledgerToolStripMenuItem1.Name = "ledgerToolStripMenuItem1";
+            this.ledgerToolStripMenuItem1.Size = new System.Drawing.Size(110, 22);
+            this.ledgerToolStripMenuItem1.Text = "Ledger";
+            this.ledgerToolStripMenuItem1.Click += new System.EventHandler(this.ledgerToolStripMenuItem1_Click);
+            // 
+            // voucherToolStripMenuItem
+            // 
+            this.voucherToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.salesToolStripMenuItem});
+            this.voucherToolStripMenuItem.Name = "voucherToolStripMenuItem";
+            this.voucherToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.voucherToolStripMenuItem.Text = "Voucher";
+            // 
+            // salesToolStripMenuItem
+            // 
+            this.salesToolStripMenuItem.Name = "salesToolStripMenuItem";
+            this.salesToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.salesToolStripMenuItem.Text = "Sales";
+            this.salesToolStripMenuItem.Click += new System.EventHandler(this.salesToolStripMenuItem_Click);
+            // 
+            // templateMasterToolStripMenuItem
+            // 
+            this.templateMasterToolStripMenuItem.Name = "templateMasterToolStripMenuItem";
+            this.templateMasterToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.templateMasterToolStripMenuItem.Text = "Template - Master";
+            this.templateMasterToolStripMenuItem.Click += new System.EventHandler(this.templateMasterToolStripMenuItem_Click);
+            // 
+            // templateVoucherToolStripMenuItem
+            // 
+            this.templateVoucherToolStripMenuItem.Name = "templateVoucherToolStripMenuItem";
+            this.templateVoucherToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.templateVoucherToolStripMenuItem.Text = "Template - Voucher";
+            this.templateVoucherToolStripMenuItem.Click += new System.EventHandler(this.templateVoucherToolStripMenuItem_Click);
+            // 
+            // settingToolStripMenuItem
+            // 
+            this.settingToolStripMenuItem.Name = "settingToolStripMenuItem";
+            this.settingToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.settingToolStripMenuItem.Text = "Setting";
             // 
             // mangaeToolStripMenuItem
             // 
@@ -225,28 +294,6 @@
             this.mangaeToolStripMenuItem.Name = "mangaeToolStripMenuItem";
             this.mangaeToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
             this.mangaeToolStripMenuItem.Text = "Mangae";
-            // 
-            // reportToolStripMenuItem
-            // 
-            this.reportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.stockItemToolStripMenuItem,
-            this.dayBooksToolStripMenuItem});
-            this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
-            this.reportToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
-            this.reportToolStripMenuItem.Text = "Report";
-            // 
-            // syncronisationToolStripMenuItem
-            // 
-            this.syncronisationToolStripMenuItem.Name = "syncronisationToolStripMenuItem";
-            this.syncronisationToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.syncronisationToolStripMenuItem.Text = "Sync";
-            // 
-            // createLedgerByExcelFileToolStripMenuItem
-            // 
-            this.createLedgerByExcelFileToolStripMenuItem.Name = "createLedgerByExcelFileToolStripMenuItem";
-            this.createLedgerByExcelFileToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
-            this.createLedgerByExcelFileToolStripMenuItem.Text = "Create Ledger by Excel file";
-            this.createLedgerByExcelFileToolStripMenuItem.Click += new System.EventHandler(this.createLedgerByExcelFileToolStripMenuItem_Click);
             // 
             // createLedgerToolStripMenuItem
             // 
@@ -283,25 +330,40 @@
             this.alterVoucherToolStripMenuItem.Text = "Alter Voucher";
             this.alterVoucherToolStripMenuItem.Click += new System.EventHandler(this.alterVoucherToolStripMenuItem_Click);
             // 
+            // reportToolStripMenuItem
+            // 
+            this.reportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.stockItemToolStripMenuItem,
+            this.dayBooksToolStripMenuItem});
+            this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
+            this.reportToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+            this.reportToolStripMenuItem.Text = "Report";
+            // 
             // stockItemToolStripMenuItem
             // 
             this.stockItemToolStripMenuItem.Name = "stockItemToolStripMenuItem";
-            this.stockItemToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.stockItemToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.stockItemToolStripMenuItem.Text = "Stock Items";
             this.stockItemToolStripMenuItem.Click += new System.EventHandler(this.stockItemToolStripMenuItem_Click);
             // 
             // dayBooksToolStripMenuItem
             // 
             this.dayBooksToolStripMenuItem.Name = "dayBooksToolStripMenuItem";
-            this.dayBooksToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.dayBooksToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.dayBooksToolStripMenuItem.Text = "Day Books";
             this.dayBooksToolStripMenuItem.Click += new System.EventHandler(this.dayBooksToolStripMenuItem_Click);
+            // 
+            // syncronisationToolStripMenuItem
+            // 
+            this.syncronisationToolStripMenuItem.Name = "syncronisationToolStripMenuItem";
+            this.syncronisationToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.syncronisationToolStripMenuItem.Text = "Sync";
             // 
             // frmDashBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1085, 581);
+            this.ClientSize = new System.Drawing.Size(1085, 608);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
@@ -311,6 +373,7 @@
             this.Name = "frmDashBoard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dash Board";
+            this.Load += new System.EventHandler(this.frmDashBoard_Load);
             this.panel1.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -333,7 +396,6 @@
         private System.Windows.Forms.Button btnExcelToXml;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem integrateToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem createLedgerByExcelFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mangaeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createLedgerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem alterLedgerToolStripMenuItem;
@@ -344,5 +406,13 @@
         private System.Windows.Forms.ToolStripMenuItem stockItemToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dayBooksToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem syncronisationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem excelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ledgerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ledgerToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem voucherToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem settingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem salesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem templateMasterToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem templateVoucherToolStripMenuItem;
     }
 }

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
+using System.Collections;
 
 namespace LedgerCreation
 {
@@ -46,18 +47,21 @@ namespace LedgerCreation
                                 "</BODY>" +
                                 "</ENVELOPE>";
 
-            string TallyResponse = TallyXml.ConnectToTally(RequestXML);
+            //// connecting to tally(if open) then get response from tally////
+            string TallyResponse = TallyXml.ConnectToTally(RequestXML);  
 
             XmlDocument xml = new XmlDocument();
             xml.LoadXml(TallyResponse);
             //show list of node name
-            XmlNodeList xmlStockItemList = xml.SelectNodes("ENVELOPE/DSPSTKINFO/DSPSTKCL");
-            //XmlNodeList xmlNodeList = xml.SelectNodes("//BODY/IMPORTDATA/REQUESTDATA/TALLYMESSAGE");
+            XmlNodeList xmlStockItemList = xml.SelectNodes("ENVELOPE/DSPSTKINFO");
+            //XmlNodeList xmlStockItemList = xml.SelectNodes("ENVELOPE/DSPSTKINFO/DSPSTKCL");
+           
             //// XmlNodeList nodes = xml.GetElementsByTagName("NAME");
 
 
             List<string> listOfName = new List<string>();  // list of xml element Name
             List<string> listOfValue = new List<string>();  // list of xml element Value
+
             foreach (XmlNode xmlNode in xmlStockItemList)
             {
 
@@ -70,37 +74,8 @@ namespace LedgerCreation
                         string xmlElementName = xmlNodeChildChild.Name;
                         string xmlElementValue = xmlNodeChildChild.InnerText;
 
-                        // if (xmlElementName == "DATE" || xmlElementName == "PARTYNAME" || xmlElementName == "VOUCHERTYPENAME" || xmlElementName == "VOUCHERNUMBER" || xmlElementName == "PARTYLEDGERNAME")
-                        if (xmlElementName == "DATE")
-                        {
-                            string strDate = ConvertStringToDate(xmlElementValue);
-                            DateTime d = Convert.ToDateTime(strDate);
-
-                            listOfName.Add(xmlElementName);
-                           
-                            listOfValue.Add(strDate);
-                        }
-                        else if (xmlElementName == "PARTYNAME")
-                        {
-                            listOfName.Add(xmlElementName);
-                            listOfValue.Add(xmlElementValue);
-                        }
-                        else if (xmlElementName == "VOUCHERTYPENAME")
-                        {
-                            listOfName.Add(xmlElementName);
-                            listOfValue.Add(xmlElementValue);
-                        }
-                        else if (xmlElementName == "VOUCHERNUMBER")
-                        {
-                            listOfName.Add(xmlElementName);
-                            listOfValue.Add(xmlElementValue);
-                        }
-                        else if (xmlElementName == "PARTYLEDGERNAME")
-                        {
-                            listOfName.Add(xmlElementName);
-                            listOfValue.Add(xmlElementValue);
-
-                        }
+                        listOfName.Add(xmlElementName);
+                        listOfValue.Add(xmlElementValue);
 
                     }
 
@@ -109,7 +84,32 @@ namespace LedgerCreation
 
             }
 
-            
+            //remove all rows from datagridview
+            dataGridView1.Rows.Clear();
+
+            //remove duplicate element
+           // IEnumerable<string> uniqueListOfName = listOfName.Distinct();
+            //add datagridview column name
+            int m = 0;
+            dataGridView1.ColumnCount = listOfName.Count();
+            foreach (var item in listOfName)
+            {
+                dataGridView1.ColumnCount = listOfName.Count();
+                dataGridView1.Columns[m].Name = item;  // set column name of dataGridView1
+                m++;
+            }
+
+
+            // Fill DataGridView1 row by array listValue
+            string[] arrRow = new string[listOfName.Count];
+            int i=0;
+             foreach (string item in listOfValue)
+	            {
+                    arrRow[i] = item;
+                    i++;
+	            }
+             dataGridView1.Rows.Add(arrRow);
+            //-------------------------------------//
 
         }
 

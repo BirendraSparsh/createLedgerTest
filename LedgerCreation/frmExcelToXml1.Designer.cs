@@ -194,7 +194,7 @@
             // 
             this.txtJsonFile1.Location = new System.Drawing.Point(109, 447);
             this.txtJsonFile1.Name = "txtJsonFile1";
-            this.txtJsonFile1.Size = new System.Drawing.Size(188, 20);
+            this.txtJsonFile1.Size = new System.Drawing.Size(189, 20);
             this.txtJsonFile1.TabIndex = 15;
             // 
             // button1

@@ -127,7 +127,7 @@ namespace LedgerCreation
                         string xmlElementName = xmlNodeChildChild.Name;
                         string xmlElementValue = xmlNodeChildChild.InnerText;
 
-                        // if (xmlElementName == "DATE" || xmlElementName == "PARTYNAME" || xmlElementName == "VOUCHERTYPENAME" || xmlElementName == "VOUCHERNUMBER" || xmlElementName == "PARTYLEDGERNAME")
+                       
                         if (xmlElementName == "DATE")
                         {
                             string strDate = ConvertStringToDate(xmlElementValue);

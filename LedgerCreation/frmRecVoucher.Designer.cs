@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtVhrNo = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.comboParticular = new System.Windows.Forms.ComboBox();
             this.comboAccount = new System.Windows.Forms.ComboBox();
@@ -43,6 +41,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.txtVhrNo = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,24 +67,6 @@
             this.panel1.Size = new System.Drawing.Size(528, 286);
             this.panel1.TabIndex = 17;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // txtVhrNo
-            // 
-            this.txtVhrNo.Location = new System.Drawing.Point(449, 20);
-            this.txtVhrNo.Name = "txtVhrNo";
-            this.txtVhrNo.Size = new System.Drawing.Size(23, 20);
-            this.txtVhrNo.TabIndex = 4;
-            this.txtVhrNo.Visible = false;
-            this.txtVhrNo.WordWrap = false;
-            // 
-            // label1
-            // 
-            this.label1.Location = new System.Drawing.Point(376, 23);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 23);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Voucher. No";
-            this.label1.Visible = false;
             // 
             // label7
             // 
@@ -181,6 +163,25 @@
             this.button1.TabIndex = 25;
             this.button1.Text = "Create";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // txtVhrNo
+            // 
+            this.txtVhrNo.Location = new System.Drawing.Point(439, 21);
+            this.txtVhrNo.Name = "txtVhrNo";
+            this.txtVhrNo.Size = new System.Drawing.Size(69, 20);
+            this.txtVhrNo.TabIndex = 4;
+            this.txtVhrNo.Visible = false;
+            this.txtVhrNo.WordWrap = false;
+            // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(376, 23);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(57, 23);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Voucher. No";
+            this.label1.Visible = false;
             // 
             // frmRecVoucher
             // 

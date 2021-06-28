@@ -148,6 +148,16 @@ namespace LedgerCreation
 
         }
 
+        private void btnAlter_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmVoucherAlter_Load(object sender, EventArgs e)
+        {
+
+        }
+
 
     }
 }

@@ -159,14 +159,65 @@ namespace LedgerCreation
             f.Show();
         }
 
-        private void createLedgerByExcelFileToolStripMenuItem_Click(object sender, EventArgs e)
+       
+
+        private void ledgerToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             panel2.Controls.Clear();
             frmExcelToXml1 f = new frmExcelToXml1();
             f.TopLevel = false;
             panel2.Controls.Add(f);
             f.Show();
+
         }
+
+        private void salesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panel2.Controls.Clear();
+            frmExcelToXmlSales f = new frmExcelToXmlSales();
+            f.TopLevel = false;
+            panel2.Controls.Add(f);
+            f.Show();
+        }
+
+        private void templateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           
+
+        }
+
+        private void templateVoucherToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            clsMenu.VoucherID = enmMenu.Voucher.ToString();
+
+           // clsMenu.templateTitle = "Template - Voucher";
+           // clsMenu.templateCombobox1Title = "Vouchers";
+            panel2.Controls.Clear();
+            frmTemplate f = new frmTemplate();
+            f.TopLevel = false;
+            panel2.Controls.Add(f);
+            f.Show();
+        }
+
+        private void templateMasterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            clsMenu.MasterId = enmMenu.Master.ToString();
+          
+           // clsMenu.
+            panel2.Controls.Clear();
+            frmTemplate f = new frmTemplate();
+            f.TopLevel = false;
+            panel2.Controls.Add(f);
+            f.Show();
+             
+        }
+
+        private void frmDashBoard_Load(object sender, EventArgs e)
+        {
+
+        }
+
+      
 
       
 
