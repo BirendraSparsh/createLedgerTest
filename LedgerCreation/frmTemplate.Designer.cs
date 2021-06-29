@@ -48,6 +48,8 @@
             this.lblTemplateTitle = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.lblCombobox1 = new System.Windows.Forms.Label();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.comboTally1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -55,7 +57,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(349, 263);
+            this.label4.Location = new System.Drawing.Point(610, 260);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(71, 13);
             this.label4.TabIndex = 33;
@@ -72,7 +74,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(583, 258);
+            this.btnAdd.Location = new System.Drawing.Point(839, 253);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 31;
@@ -83,7 +85,7 @@
             // comboExcel
             // 
             this.comboExcel.FormattingEnabled = true;
-            this.comboExcel.Location = new System.Drawing.Point(435, 260);
+            this.comboExcel.Location = new System.Drawing.Point(698, 255);
             this.comboExcel.Name = "comboExcel";
             this.comboExcel.Size = new System.Drawing.Size(121, 21);
             this.comboExcel.TabIndex = 30;
@@ -217,7 +219,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(188, 30);
+            this.comboBox1.Location = new System.Drawing.Point(188, 38);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(179, 21);
             this.comboBox1.TabIndex = 45;
@@ -226,17 +228,37 @@
             // lblCombobox1
             // 
             this.lblCombobox1.AutoSize = true;
-            this.lblCombobox1.Location = new System.Drawing.Point(89, 34);
+            this.lblCombobox1.Location = new System.Drawing.Point(89, 42);
             this.lblCombobox1.Name = "lblCombobox1";
             this.lblCombobox1.Size = new System.Drawing.Size(83, 13);
             this.lblCombobox1.TabIndex = 46;
             this.lblCombobox1.Text = "Vouchers Name";
+            // 
+            // btnExit
+            // 
+            this.btnExit.Location = new System.Drawing.Point(790, 503);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(75, 23);
+            this.btnExit.TabIndex = 47;
+            this.btnExit.Text = "Exit";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // comboTally1
+            // 
+            this.comboTally1.FormattingEnabled = true;
+            this.comboTally1.Location = new System.Drawing.Point(363, 260);
+            this.comboTally1.Name = "comboTally1";
+            this.comboTally1.Size = new System.Drawing.Size(154, 21);
+            this.comboTally1.TabIndex = 48;
             // 
             // frmTemplate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(956, 559);
+            this.Controls.Add(this.comboTally1);
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.lblCombobox1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.lblTemplateTitle);
@@ -290,5 +312,7 @@
         private System.Windows.Forms.Label lblTemplateTitle;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label lblCombobox1;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.ComboBox comboTally1;
     }
 }

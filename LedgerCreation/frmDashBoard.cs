@@ -157,27 +157,7 @@ namespace LedgerCreation
             f.TopLevel = false;
             panel2.Controls.Add(f);
             f.Show();
-        }
-
-       
-
-        private void ledgerToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            panel2.Controls.Clear();
-            frmExcelToXml1 f = new frmExcelToXml1();
-            f.TopLevel = false;
-            panel2.Controls.Add(f);
-            f.Show();
-
-        }
-
-        private void salesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            panel2.Controls.Clear();
-            frmExcelToXmlSales f = new frmExcelToXmlSales();
-            f.TopLevel = false;
-            panel2.Controls.Add(f);
-            f.Show();
+            
         }
 
         private void templateToolStripMenuItem_Click(object sender, EventArgs e)
@@ -188,10 +168,8 @@ namespace LedgerCreation
 
         private void templateVoucherToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            clsMenu.VoucherID = enmMenu.Voucher.ToString();
-
-           // clsMenu.templateTitle = "Template - Voucher";
-           // clsMenu.templateCombobox1Title = "Vouchers";
+            clsMenu.MenuID = enmMenu.TemplateVoucher.ToString();
+         
             panel2.Controls.Clear();
             frmTemplate f = new frmTemplate();
             f.TopLevel = false;
@@ -201,8 +179,9 @@ namespace LedgerCreation
 
         private void templateMasterToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            clsMenu.MasterId = enmMenu.Master.ToString();
-          
+           
+            clsMenu.MenuID= enmMenu.TemplateMaster.ToString(); // set menu id
+      
            // clsMenu.
             panel2.Controls.Clear();
             frmTemplate f = new frmTemplate();
@@ -216,6 +195,34 @@ namespace LedgerCreation
         {
 
         }
+
+        private void MasterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            clsMenu.MenuID = enmMenu.Master.ToString();  // set menuId value to Master
+
+            // set menu
+            panel2.Controls.Clear();
+            frmExcelToXml f = new frmExcelToXml();
+            f.TopLevel = false;
+            panel2.Controls.Add(f);
+            f.Show();
+
+        }
+
+        private void voucherToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            clsMenu.MenuID = enmMenu.Voucher.ToString(); // set menu id  value
+            // set menu
+            panel2.Controls.Clear();
+            frmExcelToXml f = new frmExcelToXml();
+            f.TopLevel = false;
+            panel2.Controls.Add(f);
+            f.Show();
+        }
+
+       
+
+       
 
       
 

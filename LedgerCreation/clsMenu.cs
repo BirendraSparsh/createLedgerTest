@@ -8,15 +8,15 @@ namespace LedgerCreation
 {
     public static class clsMenu
     {
-        public static string MasterId = "";
-        public static string VoucherID = "";
-       // public static string templateTitle = "Title" ;
-       // public static string templateCombobox1Title = "comboBox1Title";
+        public static string MenuID = "";  // according to this Id we set form title and combo label
+     
     }
 
     enum  enmMenu
     {
         Master,
-        Voucher
+        Voucher,
+        TemplateMaster,
+        TemplateVoucher
     }
 }

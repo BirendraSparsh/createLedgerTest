@@ -28,16 +28,17 @@ namespace LedgerCreation
 
         private void frmTemplate_Load(object sender, EventArgs e)
         {
-            if (clsMenu.MasterId == enmMenu.Master.ToString())
+            if (clsMenu.MenuID == enmMenu.TemplateMaster.ToString())  // for Template-Master
             {
                 lblTemplateTitle.Text = "Template - Master";
                 lblCombobox1.Text = "Masters";
 
-                comboBox1.Items.Add("Ledgers");
-                comboBox1.Items.Add("Groups");
-                comboBox1.Items.Add("Stock Items");
+                comboBox1.Items.Add("Ledger");
+                comboBox1.Items.Add("Group");
+                comboBox1.Items.Add("Stock Item");
+                comboBox1.Items.Add("Stock Group");
             }
-            else if (clsMenu.VoucherID == enmMenu.Voucher.ToString())
+            else if (clsMenu.MenuID == enmMenu.TemplateVoucher.ToString()) // for Template-Voucher
             {
                 lblTemplateTitle.Text = "Template - Voucher";
                 lblCombobox1.Text = "Vouchers";
@@ -272,7 +273,7 @@ namespace LedgerCreation
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             //   Template Master -------------//
-            if (clsMenu.MasterId == enmMenu.Master.ToString())
+            if (clsMenu.MenuID == enmMenu.TemplateMaster.ToString())
             {
                 ///Ledger Tally Element  --///
                 List<string> listOfTallyLedger = new List<string>();
@@ -297,7 +298,7 @@ namespace LedgerCreation
             
 
 
-            if (clsMenu.VoucherID == enmMenu.Voucher.ToString())
+            if (clsMenu.MenuID == enmMenu.TemplateVoucher.ToString())
             {
                 //// VOUCHER TALLY ELEMENT///
                 List<string> listSaleTallyElement = new List<string>();
@@ -351,6 +352,11 @@ namespace LedgerCreation
 
 
             
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -55,11 +55,11 @@
     <Compile Include="frmExcelToXml1.Designer.cs">
       <DependentUpon>frmExcelToXml1.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmExcelToXmlSales.cs">
+    <Compile Include="frmExcelToXml.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmExcelToXmlSales.Designer.cs">
-      <DependentUpon>frmExcelToXmlSales.cs</DependentUpon>
+    <Compile Include="frmExcelToXml.Designer.cs">
+      <DependentUpon>frmExcelToXml.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLedger.cs">
       <SubType>Form</SubType>
@@ -145,8 +145,8 @@
     <EmbeddedResource Include="frmExcelToXml1.resx">
       <DependentUpon>frmExcelToXml1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmExcelToXmlSales.resx">
-      <DependentUpon>frmExcelToXmlSales.cs</DependentUpon>
+    <EmbeddedResource Include="frmExcelToXml.resx">
+      <DependentUpon>frmExcelToXml.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLedger.resx">
       <DependentUpon>frmLedger.cs</DependentUpon>

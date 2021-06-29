@@ -41,10 +41,8 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.integrateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.excelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ledgerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ledgerToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.MasterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.voucherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.salesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.templateMasterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.templateVoucherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -224,7 +222,7 @@
             // excelToolStripMenuItem
             // 
             this.excelToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ledgerToolStripMenuItem,
+            this.MasterToolStripMenuItem,
             this.voucherToolStripMenuItem,
             this.templateMasterToolStripMenuItem,
             this.templateVoucherToolStripMenuItem,
@@ -233,35 +231,19 @@
             this.excelToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.excelToolStripMenuItem.Text = "Excel";
             // 
-            // ledgerToolStripMenuItem
+            // MasterToolStripMenuItem
             // 
-            this.ledgerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ledgerToolStripMenuItem1});
-            this.ledgerToolStripMenuItem.Name = "ledgerToolStripMenuItem";
-            this.ledgerToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
-            this.ledgerToolStripMenuItem.Text = "Master";
-            // 
-            // ledgerToolStripMenuItem1
-            // 
-            this.ledgerToolStripMenuItem1.Name = "ledgerToolStripMenuItem1";
-            this.ledgerToolStripMenuItem1.Size = new System.Drawing.Size(110, 22);
-            this.ledgerToolStripMenuItem1.Text = "Ledger";
-            this.ledgerToolStripMenuItem1.Click += new System.EventHandler(this.ledgerToolStripMenuItem1_Click);
+            this.MasterToolStripMenuItem.Name = "MasterToolStripMenuItem";
+            this.MasterToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.MasterToolStripMenuItem.Text = "Master";
+            this.MasterToolStripMenuItem.Click += new System.EventHandler(this.MasterToolStripMenuItem_Click);
             // 
             // voucherToolStripMenuItem
             // 
-            this.voucherToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.salesToolStripMenuItem});
             this.voucherToolStripMenuItem.Name = "voucherToolStripMenuItem";
             this.voucherToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.voucherToolStripMenuItem.Text = "Voucher";
-            // 
-            // salesToolStripMenuItem
-            // 
-            this.salesToolStripMenuItem.Name = "salesToolStripMenuItem";
-            this.salesToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
-            this.salesToolStripMenuItem.Text = "Sales";
-            this.salesToolStripMenuItem.Click += new System.EventHandler(this.salesToolStripMenuItem_Click);
+            this.voucherToolStripMenuItem.Click += new System.EventHandler(this.voucherToolStripMenuItem_Click);
             // 
             // templateMasterToolStripMenuItem
             // 
@@ -407,11 +389,9 @@
         private System.Windows.Forms.ToolStripMenuItem dayBooksToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem syncronisationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem excelToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ledgerToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ledgerToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem MasterToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem voucherToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem settingToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem salesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem templateMasterToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem templateVoucherToolStripMenuItem;
     }
