@@ -57,7 +57,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(610, 260);
+            this.label4.Location = new System.Drawing.Point(554, 263);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(71, 13);
             this.label4.TabIndex = 33;
@@ -66,7 +66,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(107, 263);
+            this.label3.Location = new System.Drawing.Point(92, 265);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(70, 13);
             this.label3.TabIndex = 32;
@@ -74,7 +74,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(839, 253);
+            this.btnAdd.Location = new System.Drawing.Point(829, 259);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 31;
@@ -84,19 +84,22 @@
             // 
             // comboExcel
             // 
+            this.comboExcel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboExcel.FormattingEnabled = true;
-            this.comboExcel.Location = new System.Drawing.Point(698, 255);
+            this.comboExcel.Location = new System.Drawing.Point(640, 260);
             this.comboExcel.Name = "comboExcel";
             this.comboExcel.Size = new System.Drawing.Size(121, 21);
             this.comboExcel.TabIndex = 30;
             // 
             // comboTally
             // 
+            this.comboTally.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboTally.FormattingEnabled = true;
             this.comboTally.Location = new System.Drawing.Point(203, 260);
             this.comboTally.Name = "comboTally";
             this.comboTally.Size = new System.Drawing.Size(121, 21);
             this.comboTally.TabIndex = 29;
+            this.comboTally.SelectedIndexChanged += new System.EventHandler(this.comboTally_SelectedIndexChanged);
             // 
             // btnLoad
             // 
@@ -218,6 +221,7 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(188, 38);
             this.comboBox1.Name = "comboBox1";
@@ -246,10 +250,11 @@
             // 
             // comboTally1
             // 
+            this.comboTally1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboTally1.FormattingEnabled = true;
-            this.comboTally1.Location = new System.Drawing.Point(363, 260);
+            this.comboTally1.Location = new System.Drawing.Point(354, 260);
             this.comboTally1.Name = "comboTally1";
-            this.comboTally1.Size = new System.Drawing.Size(154, 21);
+            this.comboTally1.Size = new System.Drawing.Size(121, 21);
             this.comboTally1.TabIndex = 48;
             // 
             // frmTemplate

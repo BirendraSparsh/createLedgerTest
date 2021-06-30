@@ -195,12 +195,12 @@ namespace LedgerCreation
         {
             //adding column and rows in datagridview from combo
             string[] str1 = new string[2];
-            str1[0] = comboTally.GetItemText(comboTally.SelectedItem);
+            str1[0] = comboTally1.GetItemText(comboTally1.SelectedItem);
             str1[1] = comboExcel.GetItemText(comboExcel.SelectedItem);
 
             dataGridView2.ColumnCount = 2;
-            // dataGridView2.Columns[0].Name = "Tally";
             dataGridView2.Columns[0].Name = "Sales";
+            dataGridView2.Columns[0].Name = "Tally";
             dataGridView2.Columns[1].Name = "Excel";
 
             dataGridView2.Rows.Add(str1);
@@ -283,7 +283,7 @@ namespace LedgerCreation
                 listOfTallyLedger.Add("ISBILLWISEON");
                 ////----------------------------------------///////
                 comboTally.Items.Clear();
-                if (comboBox1.SelectedItem == "Ledgers")
+                if (comboBox1.SelectedItem == "Ledger")
                 {
                     
                     foreach (string item in listOfTallyLedger)
@@ -301,7 +301,32 @@ namespace LedgerCreation
             if (clsMenu.MenuID == enmMenu.TemplateVoucher.ToString())
             {
                 //// VOUCHER TALLY ELEMENT///
-                List<string> listSaleTallyElement = new List<string>();
+                /*======= list contains Tally Sales Voucher First Tag like 
+                 * vocher , Ledger Entries , Bill Allocation,Inventory Entries,Batch Allocation ,Accounting Allocation etc   */
+                List<string> list = new List<string>();
+                list.Add("Voucher");
+                list.Add("Ledger Entries");
+                list.Add("Bill Allocation");
+                list.Add("Inventory Entries");
+                list.Add("Batch Allocation");
+                list.Add("Accounting Allocation");
+            
+
+
+
+                comboTally.Items.Clear();
+                if (comboBox1.SelectedItem == "Sales")
+                {
+
+                    foreach (string item in list)
+                    {
+                        comboTally.Items.Add(item);
+                    }
+
+                } 
+
+
+               /* List<string> listSaleTallyElement = new List<string>();
                 listSaleTallyElement.Add("DATE");
                 listSaleTallyElement.Add("PARTYNAME");
                 listSaleTallyElement.Add("VOUCHERTYPENAME");
@@ -343,7 +368,7 @@ namespace LedgerCreation
                         comboTally.Items.Add(item);
                     }
 
-                }
+                }  */
             }
            
 
@@ -357,6 +382,103 @@ namespace LedgerCreation
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void comboTally_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            /*======= list contains Tally Sales Voucher First Tag like 
+                * vocher , Ledger Entries , Bill Allocation,Inventory Entries,Batch Allocation ,Accounting Allocation etc   */
+            ////---Voucher's child element ---////
+            List<string> list1 = new List<string>();
+            list1.Add("DATE");
+            list1.Add("VOUCHERNUMBER");
+
+            ////---Ledger Entries's child element ---////
+            List<string> list2 = new List<string>();
+            list2.Add("LEDGERNAME");
+            list2.Add("AMOUNT");
+
+            ////---Bill Allocation's child element ---////
+            List<string> list3 = new List<string>();
+            list3.Add("NAME");
+            list3.Add("BILLTYPE");
+            list3.Add("AMOUNT");
+
+            ////---Enventory Entries child element ---////
+            List<string> list4 = new List<string>();
+            list4.Add("STOCKITEMNAME");
+            list4.Add("BILLEDQTY");
+            list4.Add("RATE");
+            list4.Add("DISCOUNT");//this field in not in xml file
+            list4.Add("AMOUNT");
+
+
+            ////---Batch Allocation child element ---////
+            List<string> list5 = new List<string>();
+            list5.Add("GODOWNNAME");
+            list5.Add("BATCHNAME");
+            list5.Add("BILLEDQTY");
+            list5.Add("RATE");
+            list5.Add("DISCOUNT");
+            list5.Add("AMOUNT");
+            ////---Accounting Allocation child element ---////
+            List<string> list6 = new List<string>();
+            list6.Add("LEDGERNAME");
+            list6.Add("AMOUNT");
+
+            if(comboTally.SelectedItem == "Voucher")
+            {
+                comboTally1.Items.Clear();
+                foreach (string item in list1)
+                {
+                    comboTally1.Items.Add(item);
+                }
+                
+            }
+            else if (comboTally.SelectedItem == "Ledger Entries")
+            {
+                comboTally1.Items.Clear();
+                foreach (string item in list2)
+                {
+                    comboTally1.Items.Add(item);
+                }
+            }
+            else if (comboTally.SelectedItem == "Bill Allocation")
+            {
+                comboTally1.Items.Clear();
+                foreach (string item in list3)
+                {
+                    comboTally1.Items.Add(item);
+                }
+
+            }
+            else if (comboTally.SelectedItem == "Inventory Entries")
+            {
+                comboTally1.Items.Clear();
+                foreach (string item in list4)
+                {
+                    comboTally1.Items.Add(item);
+                }
+
+            }
+            else if (comboTally.SelectedItem == "Batch Allocation")
+            {
+                comboTally1.Items.Clear();
+                foreach (string item in list5)
+                {
+                    comboTally1.Items.Add(item);
+                }
+
+            }
+            else if (comboTally.SelectedItem == "Accounting Allocation")
+            {
+                comboTally1.Items.Clear();
+                foreach (string item in list6)
+                {
+                    comboTally1.Items.Add(item);
+                }
+
+            }
         }
     }
 }
