@@ -50,6 +50,7 @@
             this.lblCombobox1 = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
             this.comboTally1 = new System.Windows.Forms.ComboBox();
+            this.comboTally2 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -57,7 +58,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(554, 263);
+            this.label4.Location = new System.Drawing.Point(496, 265);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(71, 13);
             this.label4.TabIndex = 33;
@@ -66,7 +67,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(92, 265);
+            this.label3.Location = new System.Drawing.Point(92, 264);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(70, 13);
             this.label3.TabIndex = 32;
@@ -74,7 +75,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(829, 259);
+            this.btnAdd.Location = new System.Drawing.Point(829, 257);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 31;
@@ -86,10 +87,11 @@
             // 
             this.comboExcel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboExcel.FormattingEnabled = true;
-            this.comboExcel.Location = new System.Drawing.Point(640, 260);
+            this.comboExcel.Location = new System.Drawing.Point(580, 260);
             this.comboExcel.Name = "comboExcel";
-            this.comboExcel.Size = new System.Drawing.Size(121, 21);
+            this.comboExcel.Size = new System.Drawing.Size(103, 21);
             this.comboExcel.TabIndex = 30;
+            this.comboExcel.SelectedIndexChanged += new System.EventHandler(this.comboExcel_SelectedIndexChanged);
             // 
             // comboTally
             // 
@@ -257,11 +259,21 @@
             this.comboTally1.Size = new System.Drawing.Size(121, 21);
             this.comboTally1.TabIndex = 48;
             // 
+            // comboTally2
+            // 
+            this.comboTally2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboTally2.FormattingEnabled = true;
+            this.comboTally2.Location = new System.Drawing.Point(702, 259);
+            this.comboTally2.Name = "comboTally2";
+            this.comboTally2.Size = new System.Drawing.Size(108, 21);
+            this.comboTally2.TabIndex = 49;
+            // 
             // frmTemplate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(956, 559);
+            this.Controls.Add(this.comboTally2);
             this.Controls.Add(this.comboTally1);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.lblCombobox1);
@@ -319,5 +331,6 @@
         private System.Windows.Forms.Label lblCombobox1;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.ComboBox comboTally1;
+        private System.Windows.Forms.ComboBox comboTally2;
     }
 }

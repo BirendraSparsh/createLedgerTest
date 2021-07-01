@@ -28,6 +28,8 @@ namespace LedgerCreation
 
         private void frmTemplate_Load(object sender, EventArgs e)
         {
+            comboTally2.Visible = false;
+
             if (clsMenu.MenuID == enmMenu.TemplateMaster.ToString())  // for Template-Master
             {
                 lblTemplateTitle.Text = "Template - Master";
@@ -98,11 +100,13 @@ namespace LedgerCreation
 
 
 
-                // grdExcel.DataBind();
-
+                ////// grdExcel.DataBind();
+                
                 //------fetching column name of datatables in combobox
                 List<string> colNames = dt.Columns.Cast<DataColumn>().Select(x => x.ColumnName).ToList();
+                colNames.Add("Custom"); // this is fix value to display in comboExcel 
                 comboExcel.DataSource = colNames;
+                
 
                 DataSet ds = new DataSet();
                 ds.Tables.Add(dt);
@@ -194,14 +198,17 @@ namespace LedgerCreation
         private void btnAdd_Click(object sender, EventArgs e)
         {
             //adding column and rows in datagridview from combo
-            string[] str1 = new string[2];
-            str1[0] = comboTally1.GetItemText(comboTally1.SelectedItem);
-            str1[1] = comboExcel.GetItemText(comboExcel.SelectedItem);
+            string[] str1 = new string[4];
+            str1[0] = comboTally.GetItemText(comboTally.SelectedItem);
+            str1[1] = comboTally1.GetItemText(comboTally1.SelectedItem);
+            str1[2] = comboExcel.GetItemText(comboExcel.SelectedItem);
+            str1[3] = comboTally2.GetItemText(comboTally2.SelectedItem);
 
-            dataGridView2.ColumnCount = 2;
-            dataGridView2.Columns[0].Name = "Sales";
-            dataGridView2.Columns[0].Name = "Tally";
-            dataGridView2.Columns[1].Name = "Excel";
+            dataGridView2.ColumnCount = 4;
+            dataGridView2.Columns[0].Name = "Tally Parent";
+            dataGridView2.Columns[1].Name = "Tally Child";
+            dataGridView2.Columns[2].Name = "Excel Elemet";
+            dataGridView2.Columns[3].Name = "Tally Sub Child";
 
             dataGridView2.Rows.Add(str1);
 
@@ -478,6 +485,31 @@ namespace LedgerCreation
                     comboTally1.Items.Add(item);
                 }
 
+            }
+        }
+
+        private void comboExcel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            /* custom field is used when we don't find field in Excel sheet
+             * this is used for Ledger Name */
+            if (comboExcel.SelectedItem == "Custom")
+            {
+                comboTally2.Visible = true;
+                TallyXml tallyXml = new TallyXml();
+                XmlNodeList xnList = tallyXml.showListOfLedger();
+                foreach (XmlNode xn in xnList)
+                {
+                    foreach (XmlNode xa in xn)
+                    {
+                        string data = xa.Value;
+                        comboTally2.Items.Add(data);
+                        
+                    }
+                }
+            }
+            else
+            {
+                comboTally2.Visible = false;
             }
         }
     }

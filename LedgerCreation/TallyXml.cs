@@ -6,6 +6,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace LedgerCreation
 {
@@ -69,6 +70,30 @@ namespace LedgerCreation
           
             return responseFromTallyServer;
           
+
+        }
+
+        public XmlNodeList showListOfLedger()
+        {
+            // passing this xml to tally for requesting list of ledger name
+            string RequestXML = "<ENVELOPE><HEADER><TALLYREQUEST>Export Data</TALLYREQUEST></HEADER><BODY><EXPORTDATA><REQUESTDESC><REPORTNAME>List of Accounts</REPORTNAME><STATICVARIABLES><SVEXPORTFORMAT>$$SysName:XML</SVEXPORTFORMAT><ACCOUNTTYPE>Ledgers</ACCOUNTTYPE></STATICVARIABLES></REQUESTDESC></EXPORTDATA></BODY></ENVELOPE>";
+            string TallyResponse = TallyXml.ConnectToTally(RequestXML);
+
+            XmlDocument xml = new XmlDocument();
+            xml.LoadXml(TallyResponse);
+            //show list of leadger name
+            XmlNodeList xnList = xml.SelectNodes("//BODY/IMPORTDATA/REQUESTDATA/TALLYMESSAGE/LEDGER/LANGUAGENAME.LIST/NAME.LIST/NAME");
+           /* foreach (XmlNode xn in xnList)
+            {
+                foreach (XmlNode xa in xn)
+                {
+                    string data = xa.Value;
+                    comboAccount.Items.Add(data);
+                    comboParticular.Items.Add(data);
+                }
+            } */
+
+            return xnList;
 
         }
 
